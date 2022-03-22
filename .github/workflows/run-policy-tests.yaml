@@ -1,0 +1,22 @@
+name: Run Policy Tests
+
+on: { push: { branches-ignore: [main] } }
+
+jobs:
+  unit-testing:
+    name: Run OPA Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@master
+
+      - name: Download OPA
+        run: |
+          curl -L -o /tmp/opa https://openpolicyagent.org/downloads/v0.29.4/opa_linux_amd64
+          chmod u+x /tmp/opa
+
+      - name: Run Tests
+        run: ./run_policy_tests.sh
+        env:
+          OPA_PATH: "/tmp/opa"
