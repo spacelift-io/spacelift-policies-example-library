@@ -31,3 +31,14 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 | [PLAN](./plan)  | [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego) |
 | [PLAN](./plan)  | [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego) |
 | [TRIGGER](./trigger)  | [Trigger Dependencies](./trigger/trigger-dependencies.rego) |
+
+## Policy Tests
+
+Tests can be added for policies using the convention `<policy_filename>_test.rego`. For example
+if you have a policy called `plan.rego`, you can create a test file called `plan_test.rego`.
+
+You can use the following command to run all policy tests:
+
+```shell
+./run_policy_tests.sh
+```
