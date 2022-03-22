@@ -22,7 +22,7 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 | [ACCESS](./access/)  | [Engineering Team Access](./access/engineering-team-access.rego) |
 | [ACCESS](./access/)  | [Slack Channel Access](./access/slack-channel-access.rego) |
 | [APPROVAL](./approval)  | [Multi Team Required Approvals](./approval/multi-team-required-approvals.rego) |
-| [GIT_PUSH](./git-push/)  | [Create Proposed Run From PR Label](./git-push/create-proposed-run-from-env-pr-label.rego) |
+| [GIT_PUSH](./git-push/)  | [Create Proposed Run From PR Label](./git-push/create-proposed-run-from-env-pr-labels.rego) |
 | [GIT_PUSH](./git-push/)  | [Ignore Changes Outside Root](./git-push/ignore-changes-outside-root.rego) |
 | [GIT_PUSH](./git-push/)  | [Terragrunt Monorepo Ignore Changes Outside Root](./git-push/terragrunt-monorepo-ignore-changes-outside-root.rego) |
 | [LOGIN](./login)  | [DevOps Team are Admins](./login/devops-are-admins.rego) |
