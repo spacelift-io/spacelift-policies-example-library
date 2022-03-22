@@ -1,6 +1,13 @@
 # Spacelift Policies Example Library
 
-This repository contains a collection of Spacelift Policy examples that can be re-purposed (if needed), and used with [Spacelift](https://spacelift.io/). Spacelift Policies use the Open Policy Agent, which are written in the rego language. As you'll find in this repository, there are various types of Spacelift Policies - which allow for a lot of flexibility and customization. For more information on Spacelift Policies please refer to the [documentation](https://spacelift-io.app.spacelift.dev/policies).
+This repository contains a collection of Spacelift Policy examples that can be re-purposed (if needed), and used with [Spacelift](https://spacelift.io/). Spacelift Policies use the Open Policy Agent, which are written in the rego language. As you'll find in this repository, there are various types of Spacelift Policies - which allow for a lot of flexibility and customization. For more information on Spacelift Policies please refer to the [documentation](https://docs.spacelift.io/concepts/policy).
+
+## Useful resources
+
+* [Spacelift Policies](https://docs.spacelift.io/concepts/policy): You can find information about all available Spacelift Policy types here.
+* [Open Policy Agent](https://www.openpolicyagent.org/docs/latest/policy-language/): Spacelift Policies utilize the Open Policy Agent, which uses the Rego language.
+* [Spacelift Policy Workbench](https://docs.spacelift.io/concepts/policy#policy-workbench): Use the Spacelift Policy Workbench to debug your policies using sample policy inputs.
+* [Testing Policies](https://docs.spacelift.io/concepts/policy#testing-policies): Learn about creating test cases for your Spacelift Policies.
 
 ## Policy Examples by Category
 
