@@ -7,6 +7,8 @@ package spacelift
 #
 # https://docs.spacelift.io/concepts/policy/login-policy
 
+# Make sure to use the GitHub team names, not IDs (e.g., "Example Team" not "example-team")
+# and to omit the GitHub organization name
 admin { input.session.teams[_] == "DevOps" }
 allow { input.session.member }
 deny  { not allow }
