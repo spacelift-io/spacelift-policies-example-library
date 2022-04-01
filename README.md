@@ -20,6 +20,7 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 | [PUSH](./push/)  |
 | [LOGIN](./login)  |
 | [PLAN](./plan)  |
+| [TASK](./task)  |
 | [TRIGGER](./trigger)  |
 
 ## All Policy Examples
@@ -37,6 +38,7 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 | [PLAN](./plan)  | [Enforce Password Strength](./plan/enforce-password-length.rego) |
 | [PLAN](./plan)  | [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego) |
 | [PLAN](./plan)  | [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego) |
+| [TASK](./task)  | [Allow Only Safe Task Commands](./trigger/allow-only-safe-commands.rego) |
 | [TRIGGER](./trigger)  | [Trigger Dependencies](./trigger/trigger-dependencies.rego) |
 
 ## Policy Tests
