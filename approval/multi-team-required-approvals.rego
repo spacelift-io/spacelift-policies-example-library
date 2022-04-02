@@ -19,4 +19,6 @@ approve { director_approval }
 # Approve when both DevOps and Security approve:
 approve { devops_approval; security_approval }
 
+# Learn more about sampling policy evaluations here:
+# https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
 sample { true }
