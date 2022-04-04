@@ -6,7 +6,6 @@ package spacelift
 # a different threshold.
 #
 # You can read more about plan policies here:
-#
 # https://docs.spacelift.io/concepts/policy/terraform-plan-policy
 
 # Prevent any changes that will cause the monthly cost to go above a certain threshold
@@ -29,6 +28,5 @@ warn[sprintf("monthly cost increase greater than %d%% (%.2f%%)", [threshold, per
 }
 
 # Learn more about sampling policy evaluations here:
-#
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
 sample { true }

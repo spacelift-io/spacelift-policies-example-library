@@ -4,7 +4,6 @@ package spacelift
 # you when passwords are meh.
 #
 # You can read more about plan policies here:
-#
 # https://docs.spacelift.io/concepts/policy/terraform-plan-policy
 
 deny[sprintf("We require that passwords have at least 16 characters (%s)", [resource.address])] {
@@ -23,6 +22,5 @@ new_password[resource] {
 }
 
 # Learn more about sampling policy evaluations here:
-#
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
 sample { true }
