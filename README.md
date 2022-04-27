@@ -32,6 +32,7 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 | [ACCESS](./access/)  | [Who When Where Access Restrictions](./access/who-when-where-access-restrictions.rego) |
 | [APPROVAL](./approval)  | [Allowlist Task Commands](./approval/allowlist-task-commands.rego) |
 | [APPROVAL](./approval)  | [Multi Team Required Approvals](./approval/multi-team-required-approvals.rego) |
+| [APPROVAL](./approval)  | [Reject runs on public workers](./approval/reject-runs-on-public-workers.rego) |
 | [APPROVAL](./approval)  | [Task and Run Approvals](./approval/task-and-run-approvals.rego) |
 | [APPROVAL](./approval)  | [Two Approvals No Rejections](./approval/two-approvals-no-rejections.rego) |
 | [LOGIN](./login)  | [DevOps Team are Admins](./login/devops-are-admins.rego) |
