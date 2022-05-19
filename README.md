@@ -36,7 +36,7 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 | [APPROVAL](./approval)  | [Task and Run Approvals](./approval/task-and-run-approvals.rego) |
 | [APPROVAL](./approval)  | [Two Approvals No Rejections](./approval/two-approvals-no-rejections.rego) |
 | [LOGIN](./login)  | [DevOps Team are Admins](./login/devops-are-admins.rego) |
-| [LOGIN](./login)  | [External Contributor Access](./login/external-contributor-access.rego) |
+| [LOGIN](./login)  | External Contributor Access ([GitHub](./login/external-contributor-access-github.rego), [Google](./login/external-contributor-access-google.rego)) |
 | [LOGIN](./login)  | [Rewriting User Teams](./login/rewriting-user-teams.rego) |
 | [LOGIN](./login)  | [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego) |
 | [PLAN](./plan)  | [Don't Allow Resource Type](./plan/dont-allow-resource-type.rego) |
