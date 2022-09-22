@@ -2,7 +2,7 @@ package spacelift
 import future.keywords.if
 import future.keywords.in
 
-# This policy allow you to tag a repo with a "access:<level>:<team>" tag to
+# This policy allow you to tag a repo with a "access:<level>:<team>" label to
 #  grant access to Stacks via labels.
 
 
