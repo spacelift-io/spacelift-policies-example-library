@@ -1,6 +1,6 @@
 package spacelift
 
-# This example plan policy prevents you from creating weak passwords, and warns 
+# This example plan policy prevents you from creating weak passwords, and warns
 # you when passwords are meh.
 #
 # You can read more about plan policies here:
@@ -17,7 +17,8 @@ warn[sprintf("We advise that passwords have at least 20 characters (%s)", [resou
 }
 
 new_password[resource] {
-    resource := created_resources[_]
+    resource := input.terraform.resource_changes[_]
+    resource.change.actions[_] == "create"
     resource.type == "random_password"
 }
 

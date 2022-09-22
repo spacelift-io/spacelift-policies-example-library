@@ -5,11 +5,9 @@ package spacelift
 # You can read more about plan policies here:
 # https://docs.spacelift.io/concepts/policy/terraform-plan-policy
 
-
-deny[sprintf("Don't recreate random ID %s", [resource.address])] {
-  some resource 
-  resource = recreated_resources[_]
-  
+deny[sprintf("Don't create random ID %s", [resource.address])] {
+  resource := input.terraform.resource_changes[_]
+  resource.change.actions[_] == "create"
   resource.type == "random_id"
 }
 
