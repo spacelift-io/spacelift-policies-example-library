@@ -8,7 +8,7 @@ import future.keywords.in
 
 # In lieu of rego not yet having a regex.replace this does the friendly name to
 #   GitHub ID sanitization
-# "My_Team is - awesome" -> "myr_-team-is-awesome"`
+# "My_Team is - awesome" -> "my_team-is-awesome"`
 trim_whitespace(s) := concat("-", parts) {
 	parts := [lower(part) |
 		some part in split(s, " ")
