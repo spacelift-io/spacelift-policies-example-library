@@ -1,0 +1,33 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+
+jobs:
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Install OPA
+        run: |
+          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.43.1/opa_linux_amd64
+          chmod u+x /usr/local/bin/opa
+
+      - name: Lint policies
+        run: |
+          policies=$(find . -type f -regex '.*\.rego$' | grep -v _test.rego)
+          for policy in $policies; do
+              opa check $policy
+          done
+
+      - name: Run unit tests
+        run: |
+          tests=$(find . -type f -regex '.*_test\.rego$')
+          for test in $tests; do
+              opa test -v $test ${test/_test.rego/.rego}
+          done
+
