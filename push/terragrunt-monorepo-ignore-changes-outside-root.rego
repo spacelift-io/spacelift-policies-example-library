@@ -9,22 +9,30 @@ package spacelift
 # https://docs.spacelift.io/concepts/policy/git-push-policy
 
 track {
-    affected
-    input.push.branch == input.stack.branch
+	affected
+	input.push.branch == input.stack.branch
 }
 
-propose { affected }
-ignore  { not affected }
-ignore  { input.push.tag != "" }
+propose {
+	affected
+}
+
+ignore {
+	not affected
+}
+
+ignore {
+	input.push.tag != ""
+}
 
 # Here's a definition of an affected file - its path must:
 # a) start with the Stack's project root, and;
 # b) end with ".tf", indicating that it's a Terraform source file;
 affected {
-    filepath := input.push.affected_files[_]
+	filepath := input.push.affected_files[_]
 
-    startswith(filepath, input.stack.project_root)
-    endswith(filepath, ".tf")
+	startswith(filepath, input.stack.project_root)
+	endswith(filepath, ".tf")
 }
 
 # OR
@@ -32,10 +40,10 @@ affected {
 # a) start with the Stack's project root, and;
 # b) end with ".hcl", indicating that it's a Terraform source file;
 affected {
-    filepath := input.push.affected_files[_]
+	filepath := input.push.affected_files[_]
 
-    startswith(filepath, input.stack.project_root)
-    endswith(filepath, ".hcl")
+	startswith(filepath, input.stack.project_root)
+	endswith(filepath, ".hcl")
 }
 
 # OR
@@ -43,12 +51,12 @@ affected {
 # a) start with the Stack's project root, and;
 # b) end with ".rego", indicating that it's a rego policy file;
 affected {
-    filepath := input.push.affected_files[_]
+	filepath := input.push.affected_files[_]
 
-    startswith(filepath, input.stack.project_root)
-    endswith(filepath, ".rego")
+	startswith(filepath, input.stack.project_root)
+	endswith(filepath, ".rego")
 }
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true

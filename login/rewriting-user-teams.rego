@@ -10,14 +10,22 @@ package spacelift
 # - is not a member of the Contractors team, as defined by your IdP;
 
 team["Superwriter"] {
-  office_vpn
-  devops
-  not contractor
+	office_vpn
+	devops
+	not contractor
 }
 
-contractor { input.session.teams[_] == "Contractors" }
-devops     { input.session.teams[_] == "DevOps" }
-office_vpn { net.cidr_contains("12.34.56.0/24", input.request.remote_ip)  }
+contractor {
+	input.session.teams[_] == "Contractors"
+}
+
+devops {
+	input.session.teams[_] == "DevOps"
+}
+
+office_vpn {
+	net.cidr_contains("12.34.56.0/24", input.request.remote_ip)
+}
 
 # What's important here is that the team rule overwrites the original list of teams, 
 # meaning that if it evaluates to a non-empty collection, it will replace the original list
@@ -26,4 +34,4 @@ office_vpn { net.cidr_contains("12.34.56.0/24", input.request.remote_ip)  }
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true

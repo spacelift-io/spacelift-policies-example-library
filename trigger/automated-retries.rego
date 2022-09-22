@@ -7,14 +7,14 @@ package spacelift
 # trigger another policy evaluation:
 
 trigger[stack.id] {
-  stack := input.stack
-  input.run.state == "FAILED"
-  input.run.type == "TRACKED"
-  is_null(input.run.triggered_by)
+	stack := input.stack
+	input.run.state == "FAILED"
+	input.run.type == "TRACKED"
+	is_null(input.run.triggered_by)
 }
 
 # Note: This will also prevent user-triggered runs from being retried.
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true
