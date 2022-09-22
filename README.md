@@ -30,6 +30,7 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 | [ACCESS](./access/)  | [Protect Administrative Stacks](./access/protect-administrative-stacks.rego) |
 | [ACCESS](./access/)  | [Slack Channel Access](./access/slack-channel-access.rego) |
 | [ACCESS](./access/)  | [Who When Where Access Restrictions](./access/who-when-where-access-restrictions.rego) |
+| [ACCESS](./access/)  | [Tag Based Team Access](./access/tag-based-team-access.rego) |
 | [APPROVAL](./approval)  | [Allowlist Task Commands](./approval/allowlist-task-commands.rego) |
 | [APPROVAL](./approval)  | [Multi Team Required Approvals](./approval/multi-team-required-approvals.rego) |
 | [APPROVAL](./approval)  | [Reject runs on public workers](./approval/reject-runs-on-public-workers.rego) |
