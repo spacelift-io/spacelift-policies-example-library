@@ -86,6 +86,6 @@ test_no_write_if_wrong_wrong_label3 {
 test_no_write_if_wrong_wrong_label4 {
      not write with input as {
         "session": { "teams": ["My - Team"] },
-        "stack": { "labels": ["access:write:my-team"] }
+        "stack": { "labels": ["access:write:my-team:haha"] }
     }
 }
