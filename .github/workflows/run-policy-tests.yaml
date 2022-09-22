@@ -13,7 +13,7 @@ jobs:
 
       - name: Download OPA
         run: |
-          curl -L -o /tmp/opa https://openpolicyagent.org/downloads/v0.29.4/opa_linux_amd64
+          curl -L -o /tmp/opa https://openpolicyagent.org/downloads/v0.43.1/opa_linux_amd64
           chmod u+x /tmp/opa
 
       - name: Run Tests
