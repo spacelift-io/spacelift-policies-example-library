@@ -4,6 +4,47 @@ on:
   pull_request:
 
 jobs:
+  formatting-check:
+    name: Formatting Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Install OPA
+        run: |
+          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.43.1/opa_linux_amd64
+          chmod u+x /usr/local/bin/opa
+
+      - name: Check formatting
+        run: |
+          output="$(opa fmt --diff .)"
+          if [ -n "$output" ]; then
+              echo "$output"
+              exit 1
+          fi
+
+  syntax-check:
+    name: Syntax Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Install OPA
+        run: |
+          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.43.1/opa_linux_amd64
+          chmod u+x /usr/local/bin/opa
+
+      - name: Check syntax
+        run: |
+          policies=$(find . -type f -regex '.*\.rego$' | grep -v _test.rego)
+          for policy in $policies; do
+              opa check $policy
+          done
+
   unit-tests:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -17,25 +58,9 @@ jobs:
           curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.43.1/opa_linux_amd64
           chmod u+x /usr/local/bin/opa
 
-      - name: Check policies formatting
-        run: |
-          output="$(opa fmt --diff .)"
-          if [ -n "$output" ]; then
-              echo "$output"
-              exit 1
-          fi
-
-      - name: Check policies syntax
-        run: |
-          policies=$(find . -type f -regex '.*\.rego$' | grep -v _test.rego)
-          for policy in $policies; do
-              opa check $policy
-          done
-
       - name: Run unit tests
         run: |
           tests=$(find . -type f -regex '.*_test\.rego$')
           for test in $tests; do
               opa test -v $test ${test/_test.rego/.rego}
           done
-
