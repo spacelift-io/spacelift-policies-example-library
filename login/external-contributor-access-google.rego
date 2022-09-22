@@ -9,8 +9,6 @@ package spacelift
 # either as regular members or perhaps even as admins. Here's an example of a policy that allows
 # a bunch of allow-listed folks to get regular access and one to get admin privileges:
 
-package spacelift
-
 admins  := { "alice@example.com" }
 login   := input.session.login
 
