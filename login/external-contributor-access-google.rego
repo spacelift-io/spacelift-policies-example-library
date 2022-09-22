@@ -9,13 +9,23 @@ package spacelift
 # either as regular members or perhaps even as admins. Here's an example of a policy that allows
 # a bunch of allow-listed folks to get regular access and one to get admin privileges:
 
-admins  := { "alice@example.com" }
-login   := input.session.login
+admins := {"alice@example.com"}
 
-admin { admins[login] }
-allow { endswith(input.session.login, "@example.com") }
-deny  { not admins[login]; not allow }
+login := input.session.login
+
+admin {
+	admins[login]
+}
+
+allow {
+	endswith(input.session.login, "@example.com")
+}
+
+deny {
+	not admins[login]
+	not allow
+}
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true

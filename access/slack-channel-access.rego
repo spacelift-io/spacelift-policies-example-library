@@ -8,9 +8,9 @@ package spacelift
 # NOTE: If you are looking to scope access to individual Slack channels
 # you should consider using the channel id, rather than the name, as names can change.
 write {
-    input.slack.channel.name = "dev-notifications"
+	input.slack.channel.name = "dev-notifications"
 }
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true

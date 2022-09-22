@@ -8,11 +8,15 @@ package spacelift
 # to automatically enforce it across stacks.
 
 # Approve any runs on private workers
-approve { not input.stack.worker_pool.public }
+approve {
+	not input.stack.worker_pool.public
+}
 
 # Reject any runs on public workers
-reject { input.stack.worker_pool.public }
+reject {
+	input.stack.worker_pool.public
+}
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true

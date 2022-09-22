@@ -5,8 +5,10 @@ package spacelift
 # So let's deny write access to them entirely. This works since access policies 
 # are not evaluated for admin users.
 
-deny_write { input.stack.administrative }
+deny_write {
+	input.stack.administrative
+}
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true

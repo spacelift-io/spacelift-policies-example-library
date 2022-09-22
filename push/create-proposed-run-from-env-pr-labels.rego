@@ -6,12 +6,12 @@ package spacelift
 # https://docs.spacelift.io/concepts/policy/git-push-policy
 
 propose {
-  label := input.stack.labels[_]
-  startswith(label, "env:")
-  pr_label := input.pull_request.labels[_]
-  label == pr_label
+	label := input.stack.labels[_]
+	startswith(label, "env:")
+	pr_label := input.pull_request.labels[_]
+	label == pr_label
 }
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true

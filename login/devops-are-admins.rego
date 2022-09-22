@@ -8,10 +8,18 @@ package spacelift
 
 # Make sure to use the GitHub team names, not IDs (e.g., "Example Team" not "example-team")
 # and to omit the GitHub organization name
-admin { input.session.teams[_] == "DevOps" }
-allow { input.session.member }
-deny  { not allow }
+admin {
+	input.session.teams[_] == "DevOps"
+}
+
+allow {
+	input.session.member
+}
+
+deny {
+	not allow
+}
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample { true }
+sample = true
