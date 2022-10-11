@@ -1,7 +1,8 @@
 package spacelift
 
 # This example trigger policy will cause every stack that declares dependency on
-# the current one to get triggered the current one is successfully updated.
+# the current one to get triggered when the current one is successfully updated.
+#
 # You can read more about trigger policies here:
 # https://docs.spacelift.io/concepts/policy/trigger-policy
 

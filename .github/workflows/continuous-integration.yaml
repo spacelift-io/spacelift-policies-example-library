@@ -43,7 +43,8 @@ jobs:
 
       - name: Check syntax
         run: |
-          policies=$(find . -type f -regex '.*\.rego$' | grep -v _test.rego)
+          # KLUDGE: plan/check-sanitized-value.rego needs to be ignored because it uses the custom sanitized() function
+          policies=$(find . -type f -regex '.*\.rego$' | grep -v _test.rego | grep -v plan/check-sanitized-value.rego)
           for policy in $policies; do
               opa check $policy
           done

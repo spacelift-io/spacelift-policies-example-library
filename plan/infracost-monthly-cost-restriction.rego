@@ -1,7 +1,7 @@
 package spacelift
 
 # This example plan policy demonstrates using data from infracost to
-# ensure that resources can't be created if their mostly cost is greater than 
+# ensure that resources can't be created if their mostly cost is greater than
 # a specific threshold while displaying a warning if their cost is above
 # a different threshold.
 #

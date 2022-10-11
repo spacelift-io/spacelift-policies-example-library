@@ -17,7 +17,7 @@ approve {
 
 # Autoapprove some task commands. Note how we don't check for run type
 # because only tasks will the have "command" field set.
-task_allowlist := ["ps", "ls", "rm -rf /"]
+task_allowlist := ["ls", "ps"]
 
 approve {
 	input.run.command == task_allowlist[_]

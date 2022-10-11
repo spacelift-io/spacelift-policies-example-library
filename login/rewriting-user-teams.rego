@@ -1,5 +1,11 @@
 package spacelift
 
+# This rule will copy each of the existing teams to the new modified list.
+# Remove it if you want to start from scratch.
+team[name] {
+	name := input.session.teams[_]
+}
+
 # In addition to boolean rules regulating access to your Spacelift account, the login
 # policy exposes the team rule, which allows one to dynamically rewrite the list of teams
 # received from the identity provider. This operation allows one to define Spacelift roles
@@ -27,9 +33,9 @@ office_vpn {
 	net.cidr_contains("12.34.56.0/24", input.request.remote_ip)
 }
 
-# What's important here is that the team rule overwrites the original list of teams, 
+# What's important here is that the team rule overwrites the original list of teams,
 # meaning that if it evaluates to a non-empty collection, it will replace the original list
-# of teams in the session. In the above example, the Superadmin role will become the only 
+# of teams in the session. In the above example, the Superadmin role will become the only
 # team for the evaluated user session.
 
 # Learn more about sampling policy evaluations here:
