@@ -1,7 +1,7 @@
 package spacelift
 
 # Define what commands are allowed
-allowlist := ["ps", "ls", "rm -rf /"]
+allowlist := ["ls", "ps"]
 
 # Approve when not a task.
 approve {

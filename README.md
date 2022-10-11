@@ -9,7 +9,7 @@ This repository contains a collection of Spacelift Policy examples that can be r
 * [Spacelift Policy Workbench](https://docs.spacelift.io/concepts/policy#policy-workbench): Use the Spacelift Policy Workbench to debug your policies using sample policy inputs.
 * [Testing Policies](https://docs.spacelift.io/concepts/policy#testing-policies): Learn about creating test cases for your Spacelift Policies.
 
-## Policy Examples by Category
+## Policy Examples by Type
 
 Policy Types Currently In This Library are below. Feel free to click on a given policy type to be taken to examples for that policy type.
 
@@ -24,32 +24,70 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 
 ## All Policy Examples
 
-| Policy Type | Policy Name |
-| ------------- | ------------- |
-| [ACCESS](./access/)  | [Engineering Team Access](./access/engineering-team-access.rego) |
-| [ACCESS](./access/)  | [Protect Administrative Stacks](./access/protect-administrative-stacks.rego) |
-| [ACCESS](./access/)  | [Slack Channel Access](./access/slack-channel-access.rego) |
-| [ACCESS](./access/)  | [Who When Where Access Restrictions](./access/who-when-where-access-restrictions.rego) |
-| [ACCESS](./access/)  | [Label Based Team Access](./access/label-based-team-access.rego) |
-| [APPROVAL](./approval)  | [Allowlist Task Commands](./approval/allowlist-task-commands.rego) |
-| [APPROVAL](./approval)  | [Multi Team Required Approvals](./approval/multi-team-required-approvals.rego) |
-| [APPROVAL](./approval)  | [Reject runs on public workers](./approval/reject-runs-on-public-workers.rego) |
-| [APPROVAL](./approval)  | [Task and Run Approvals](./approval/task-and-run-approvals.rego) |
-| [APPROVAL](./approval)  | [Two Approvals No Rejections](./approval/two-approvals-no-rejections.rego) |
-| [LOGIN](./login)  | [DevOps Team are Admins](./login/devops-are-admins.rego) |
-| [LOGIN](./login)  | External Contributor Access ([GitHub](./login/external-contributor-access-github.rego), [Google](./login/external-contributor-access-google.rego)) |
-| [LOGIN](./login)  | [Rewriting User Teams](./login/rewriting-user-teams.rego) |
-| [LOGIN](./login)  | [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego) |
-| [PLAN](./plan)  | [Don't Allow Resource Type](./plan/dont-allow-resource-type.rego) |
-| [PLAN](./plan)  | [Enforce Password Strength](./plan/enforce-password-length.rego) |
-| [PLAN](./plan)  | [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego) |
-| [PLAN](./plan)  | [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego) |
-| [PUSH](./push/)  | [Cancel In Progress Runs](./push/cancel-in-progress-runs.rego) |
-| [PUSH](./push/)  | [Create Proposed Run From PR Label](./push/create-proposed-run-from-env-pr-labels.rego) |
-| [PUSH](./push/)  | [Ignore Changes Outside Root](./push/ignore-changes-outside-root.rego) |
-| [PUSH](./push/)  | [Terragrunt Monorepo Ignore Changes Outside Root](./push/terragrunt-monorepo-ignore-changes-outside-root.rego) |
-| [TRIGGER](./trigger)  | [Automated Retries](./trigger/automated-retries.rego) |
-| [TRIGGER](./trigger)  | [Trigger Dependencies](./trigger/trigger-dependencies.rego) |
+### Access Policy
+
+- [Engineering Team Access](./access/engineering-team-access.rego)
+- [Downgrade access after hours](./access/downgrade-access-after-hours.rego)
+- [Label Based Team Access](./access/label-based-team-access.rego)
+- [Protect Administrative Stacks](./access/protect-administrative-stacks.rego)
+- [Slack Channel Access](./access/slack-channel-access.rego)
+- [Who When Where Access Restrictions](./access/who-when-where-access-restrictions.rego)
+
+### Approval Policy
+
+- [Allowlist Task Commands](./approval/allowlist-task-commands.rego)
+- [Require private worker](./approval/require-private-worker.rego)
+- [Role-based Approval](./approval/role-based-approval.rego)
+- [Task and Run Approvals](./approval/task-and-run-approvals.rego)
+- [Two Approvals Two Rejections](./approval/two-approvals-two-rejections.rego)
+- [Two Approvals Two Rejections](./approval/two-approvals-two-rejections.rego)
+
+### Login Policy
+
+- External Contributor Access:
+  - [GitHub](./login/external-contributor-access-github.rego)
+  - [Google](./login/external-contributor-access-google.rego)
+- [Managing access levels within an organization](./login/access-levels-within-an-organization.rego)
+- [Rewriting User Teams](./login/rewriting-user-teams.rego)
+- [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego)
+
+### Plan Policy
+
+- [Check blast radius](./plan/check-blast-radius.rego)
+- [Check sanitized value](./plan/check-sanitized-value.rego)
+- [Deny on proposed runs but warn on tracked runs](./plan/deny-proposed-runs-warn-track-runs.rego)
+- [Don't Allow Resource Type](./plan/dont-allow-resource-type.rego)
+- [Enforce cloud provider](./plan/enforce-cloud-provider.rego)
+- [Enforce Password Strength](./plan/enforce-password-length.rego)
+- [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego)
+- [Ensure resource creation before deletion](./plan/ensure-resource-creation-before-deletion.rego)
+- [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego)
+- [Require human review for drift detection reconciliation](./plan/require-human-review-for-drift-detection-reconciliation.rego)
+- [Require human review for unreachable Ansible hosts](./plan/require-human-review-for-unreachable-ansible-hosts.rego)
+- [Require human review for resource update and deletion](./plan/require-human-review-for-update-deletion.rego)
+- [Require reasonable commit size](./plan/require-reasonable-commit-size.rego)
+- [Trusted engineers bypass review](./plan/trusted-engineers-bypass-review.rego)
+
+### Push Policy
+
+- [Allow forks](./push/allow-forks.rego)
+- [Cancel In Progress Runs](./push/cancel-in-progress-runs.rego)
+- [Create Proposed Run From PR Label](./push/create-proposed-run-from-env-pr-labels.rego)
+- [Deploy with Git tag](./push/deploy-with-git-tag.rego)
+- [Deploy with PR label](./push/deploy-with-pr-label.rego)
+- [Ignore Changes Outside Root](./push/ignore-changes-outside-root.rego)
+- [Terragrunt Monorepo Ignore Changes Outside Root](./push/terragrunt-monorepo-ignore-changes-outside-root.rego)
+- [PR comment-driven actions](./push/pr-comment-driven-actions.rego)
+- [PRs Only](./push/prs-only.rego)
+- [Set head commit but don't trigger run](./push/set-head-commit-no-trigger.rego)
+- [Tag-driven Terraform module release flow](./push/tag-driven-tf-module-release-flow.rego)
+
+### Trigger Policy
+
+- [Automated Retries](./trigger/automated-retries.rego)
+- [Trigger Dependencies via Labels](./trigger/trigger-dependencies-via-labels.rego)
+- [Trigger Dependencies via Labels, with state](./trigger/trigger-dependencies-via-labels-with-state.rego)
+- [Trigger hardcoded dependencies](./trigger/trigger-harcoded-dependencies.rego)
 
 ## Policy Tests
 
