@@ -15,7 +15,7 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 
 | Policy Type | Description |
 | ------------- | ------------- |
-| [ACCESS](./access/)  | Define who gets to access individual Stacks and with what level of access. |
+| [ACCESS](./access/) (Deprecated)  | Define who gets to access individual Stacks and with what level of access. |
 | [APPROVAL](./approval)  | Define who can approve or reject a run/task and how a run/task can be approved. |
 | [LOGIN](./login)  | Define who gets to login to your Spacelift account and with what level of access.|
 | [PLAN](./plan)  | Define which changes can be applied. |
@@ -25,6 +25,8 @@ Policy Types Currently In This Library are below. Feel free to click on a given 
 ## All Policy Examples
 
 ### Access Policy
+
+_Access policies have been deprecated. Please [read this](./access/README.md) for details._
 
 - [Engineering Team Access](./access/engineering-team-access.rego)
 - [Downgrade access after hours](./access/downgrade-access-after-hours.rego)

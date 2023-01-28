@@ -1,5 +1,8 @@
 # Spacelift Access Policy Examples
 
-For more information on writing Access Policies and their usage, please refer to the Spacelift documentation:
+Access policies have been deprecated in favor of Login policies in the `root` space. Please check the following resources to learn more:
 
-[https://docs.spacelift.io/concepts/policy/stack-access-policy](https://docs.spacelift.io/concepts/policy/stack-access-policy)
+- [Spaces](https://docs.spacelift.io/concepts/spaces/)
+- [Access Control with Spaces](https://docs.spacelift.io/concepts/spaces/access-control)
+- [Migrating out of the Legacy Space](https://docs.spacelift.io/concepts/spaces/migrating-out-of-the-legacy-space)
+- [Login Policy](https://docs.spacelift.io/concepts/policy/login-policy)
