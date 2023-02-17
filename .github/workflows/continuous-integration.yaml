@@ -17,7 +17,7 @@ jobs:
 
       - name: Install OPA
         run: |
-          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.44.0/opa_linux_amd64
+          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.49.0/opa_linux_amd64
           chmod u+x /usr/local/bin/opa
 
       - name: Check formatting
@@ -38,7 +38,7 @@ jobs:
 
       - name: Install OPA
         run: |
-          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.44.0/opa_linux_amd64
+          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.49.0/opa_linux_amd64
           chmod u+x /usr/local/bin/opa
 
       - name: Check syntax
@@ -59,7 +59,7 @@ jobs:
 
       - name: Install OPA
         run: |
-          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.44.0/opa_linux_amd64
+          curl --location --output /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.49.0/opa_linux_amd64
           chmod u+x /usr/local/bin/opa
 
       - name: Run unit tests
