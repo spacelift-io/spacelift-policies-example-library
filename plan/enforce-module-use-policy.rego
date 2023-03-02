@@ -9,7 +9,7 @@ package spacelift
 # ability to warn on deprecated versions, and deny on no longer supported versions!
 
 # This is a map of resource types and the list of modules which are
-# approved to be used to create them.  Note, you do not need to allow explictily 
+# approved to be used to create them.  Note, you do not need to allow explicitly 
 # any "wrapper" modules... this is checking the immediate module parent of the resource itself
 # Some example resources and approved module(s), you of course can specify your spacelift.io hosted modules
 controlled_resource_types = {
