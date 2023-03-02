@@ -6,7 +6,7 @@ package spacelift
 # https://docs.spacelift.io/concepts/policy/terraform-plan-policy#example-exposing-terraform-configuration-to-the-plan-policy
 
 # TODO:  Upgrade to take into account approved versions of the approved modules, and implement 
-# ability to warn on depreated versions, and deny on no longer supported versions!
+# ability to warn on deprecated versions, and deny on no longer supported versions!
 
 # This is a map of resource types and the list of modules which are
 # approved to be used to create them.  Note, you do not need to allow explictily 
