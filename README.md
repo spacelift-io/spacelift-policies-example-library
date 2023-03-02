@@ -69,6 +69,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Require human review for resource update and deletion](./plan/require-human-review-for-update-deletion.rego)
 - [Require reasonable commit size](./plan/require-reasonable-commit-size.rego)
 - [Trusted engineers bypass review](./plan/trusted-engineers-bypass-review.rego)
+- [Enforce module use policy](./plan/enforce-module-use-policy.rego)
 
 ### Push Policy
 
