@@ -7,11 +7,11 @@ import future.keywords
 # which is provided to the policy if you follow the instructions documented here:
 # https://docs.spacelift.io/concepts/policy/terraform-plan-policy#example-exposing-terraform-configuration-to-the-plan-policy
 
-# TODO:  Upgrade to take into account approved versions of the approved modules, and implement
-# ability to warn on depreated versions, and deny on no longer supported versions!
+# TODO:  Upgrade to take into account approved versions of the approved modules, and implement 
+# ability to warn on deprecated versions, and deny on no longer supported versions!
 
 # This is a map of resource types and the list of modules which are
-# approved to be used to create them.  Note, you do not need to allow explictily
+# approved to be used to create them.  Note, you do not need to allow explicitly 
 # any "wrapper" modules... this is checking the immediate module parent of the resource itself
 # Some example resources and approved module(s), you of course can specify your spacelift.io hosted modules
 controlled_resource_types = {
