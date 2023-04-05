@@ -1,6 +1,6 @@
 package spacelift
 
-import future.keywords
+import future.keywords.in
 
 # Note:  This policy requires the configuration of your terraform state to be provided.  In this policy,
 # we reference this via `input.third_party_metadata.custom.configuration` (line 56 below)
