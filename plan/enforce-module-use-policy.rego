@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # Note:  This policy requires the configuration of your terraform state to be provided.  In this policy,
 # we reference this via `input.third_party_metadata.custom.configuration` (line 56 below)
 # which is provided to the policy if you follow the instructions documented here:
@@ -77,14 +79,5 @@ controlled_resources[resource] {
 # When the controlled resources are collected, iterate through them and
 # see if they comply
 invalid_resources[failed] {
-  # Iterate over resource types in the controlled set
-  some resource_type
-  has_key(controlled_resource_types, resource_type)
-
-  # Get the allowed modules for each resource type
-  expected_modules := controlled_resource_types[resource_type]
-
-  # For each instance of a controlled resource type, make sure its
-  # module is listed in the expected modules
-  failed := [ resource_instance | resource_instance := controlled_resources[_]; not contains_value(expected_modules, resource_instance.resource_module_name)][_]
+  failed := [ resource_instance | resource_instance := controlled_resources[_]; not resource_instance.resource_module_name in controlled_resource_types[resource_instance.resource_type] ][_]
 }
