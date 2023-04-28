@@ -4,23 +4,23 @@ This repository contains a collection of Spacelift Policy examples that can be r
 
 ## Useful resources
 
-* [Spacelift Policies](https://docs.spacelift.io/concepts/policy): You can find information about all available Spacelift Policy types here.
-* [Open Policy Agent](https://www.openpolicyagent.org/docs/latest/policy-language/): Spacelift Policies utilize the Open Policy Agent, which uses the Rego language.
-* [Spacelift Policy Workbench](https://docs.spacelift.io/concepts/policy#policy-workbench): Use the Spacelift Policy Workbench to debug your policies using sample policy inputs.
-* [Testing Policies](https://docs.spacelift.io/concepts/policy#testing-policies): Learn about creating test cases for your Spacelift Policies.
+- [Spacelift Policies](https://docs.spacelift.io/concepts/policy): You can find information about all available Spacelift Policy types here.
+- [Open Policy Agent](https://www.openpolicyagent.org/docs/latest/policy-language/): Spacelift Policies utilize the Open Policy Agent, which uses the Rego language.
+- [Spacelift Policy Workbench](https://docs.spacelift.io/concepts/policy#policy-workbench): Use the Spacelift Policy Workbench to debug your policies using sample policy inputs.
+- [Testing Policies](https://docs.spacelift.io/concepts/policy#testing-policies): Learn about creating test cases for your Spacelift Policies.
 
 ## Policy Examples by Type
 
 Policy Types Currently In This Library are below. Feel free to click on a given policy type to be taken to examples for that policy type.
 
-| Policy Type | Description |
-| ------------- | ------------- |
-| [ACCESS](./access/) (Deprecated)  | Define who gets to access individual Stacks and with what level of access. |
-| [APPROVAL](./approval)  | Define who can approve or reject a run/task and how a run/task can be approved. |
-| [LOGIN](./login)  | Define who gets to login to your Spacelift account and with what level of access.|
-| [PLAN](./plan)  | Define which changes can be applied. |
-| [PUSH](./push/)  | Define how git push events are interpreted. |
-| [TRIGGER](./trigger)  | Define what happens when blocking runs terminate. |
+| Policy Type                      | Description                                                                       |
+| -------------------------------- | --------------------------------------------------------------------------------- |
+| [ACCESS](./access/) (Deprecated) | Define who gets to access individual Stacks and with what level of access.        |
+| [APPROVAL](./approval)           | Define who can approve or reject a run/task and how a run/task can be approved.   |
+| [LOGIN](./login)                 | Define who gets to login to your Spacelift account and with what level of access. |
+| [PLAN](./plan)                   | Define which changes can be applied.                                              |
+| [PUSH](./push/)                  | Define how git push events are interpreted.                                       |
+| [TRIGGER](./trigger)             | Define what happens when blocking runs terminate.                                 |
 
 ## All Policy Examples
 
@@ -70,6 +70,10 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Require reasonable commit size](./plan/require-reasonable-commit-size.rego)
 - [Trusted engineers bypass review](./plan/trusted-engineers-bypass-review.rego)
 - [Enforce module use policy](./plan/enforce-module-use-policy.rego)
+- [Checkov failed checks](./plan/checkov-failed-checks.rego)
+- [Kics severity counter](./plan/kics-severity-counter.rego)
+- [Terrascan violated policies](./plan/terrascan-violated-policies.rego)
+- [Tfsec high severity issues](./plan/tfsec-high-severity-issues.rego)
 
 ### Push Policy
 
