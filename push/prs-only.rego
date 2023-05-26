@@ -10,7 +10,7 @@ is_pr {
 
 track {
 	is_pr
-	input.push.branch = input.stack.branch
+	input.push.branch == input.stack.branch
 }
 
 propose {
