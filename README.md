@@ -53,15 +53,27 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Rewriting User Teams](./login/rewriting-user-teams.rego)
 - [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego)
 
+### Notification Policy
+
+- [Inbox notification](./notification/new-inbox-notification.rego)
+- [Slack notification for all drift detection run](./notification/slack-all-drift-detection-run.rego)
+- [Slack notification for drift detection run with changes](./notification/slack-changes-drift-detection-run.rego)
+- [Slack notification with message](./notification/slack-notification-with-message.rego)
+- [Slack notification](./notification/slack-notification.rego)
+- [Webhook drift detection](./notification/webhook-drift-detection.rego)
+
 ### Plan Policy
 
 - [Check blast radius](./plan/check-blast-radius.rego)
 - [Check sanitized value](./plan/check-sanitized-value.rego)
+- [Deny certain TF versions](./plan/deny-certain-tf-versions.rego)
 - [Deny on proposed runs but warn on tracked runs](./plan/deny-proposed-runs-warn-track-runs.rego)
+- [Do not destroy S3 bucket](./plan/do-not-destroy-s3-bucket.rego)
 - [Don't Allow Resource Type](./plan/dont-allow-resource-type.rego)
 - [Enforce cloud provider](./plan/enforce-cloud-provider.rego)
 - [Enforce Password Strength](./plan/enforce-password-length.rego)
 - [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego)
+- [Enforce T2 Micro size instances](./plan/Enforce-t2micro-size.rego)
 - [Ensure resource creation before deletion](./plan/ensure-resource-creation-before-deletion.rego)
 - [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego)
 - [Require human review for drift detection reconciliation](./plan/require-human-review-for-drift-detection-reconciliation.rego)
@@ -74,6 +86,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Kics severity counter](./plan/kics-severity-counter.rego)
 - [Terrascan violated policies](./plan/terrascan-violated-policies.rego)
 - [Tfsec high severity issues](./plan/tfsec-high-severity-issues.rego)
+- [Warn when theres an update to IAM user](./plan/warn-update-iam-user.rego)
 
 ### Push Policy
 
@@ -95,6 +108,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Trigger Dependencies via Labels](./trigger/trigger-dependencies-via-labels.rego)
 - [Trigger Dependencies via Labels, with state](./trigger/trigger-dependencies-via-labels-with-state.rego)
 - [Trigger hardcoded dependencies](./trigger/trigger-harcoded-dependencies.rego)
+- [Trigger when there merged to main](./trigger/trigger-when-pr-merged-main.rego)
 
 ## Policy Tests
 
