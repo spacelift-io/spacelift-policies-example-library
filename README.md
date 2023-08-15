@@ -58,7 +58,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Check blast radius](./plan/check-blast-radius.rego)
 - [Check sanitized value](./plan/check-sanitized-value.rego)
 - [Deny on proposed runs but warn on tracked runs](./plan/deny-proposed-runs-warn-track-runs.rego)
-- [Do not destroy S3](./plan/do-not-destroy-s3.rego)
+- [Do not delete stateful resources](./plan/do-not-delete-stateful-resources.rego)
 - [Don't Allow Resource Type](./plan/dont-allow-resource-type.rego)
 - [Enforce cloud provider](./plan/enforce-cloud-provider.rego)
 - [Enforce Password Strength](./plan/enforce-password-length.rego)
