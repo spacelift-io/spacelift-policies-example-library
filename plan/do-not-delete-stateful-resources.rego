@@ -14,10 +14,10 @@ deny[sprintf(message, [resource.address])] {
 
 	# Define a set of resource types for which deletions should be prevented.
 	prevent_delete := {
-		"aws_db_instance", # RDS instance
-		"aws_efs_file_system", # EFS volume
-		"aws_dynamodb_table", # DynamoDB table
-		"aws_s3_bucket", # S3 bucket
+		"aws_db_instance",
+		"aws_efs_file_system",
+		"aws_dynamodb_table",
+		"aws_s3_bucket",
 	}
 
 	# Check if the resource type is one of those defined in prevent_delete
