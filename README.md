@@ -53,6 +53,10 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Rewriting User Teams](./login/rewriting-user-teams.rego)
 - [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego)
 
+### Notification Policy
+
+- [Drift Detection With Changes](./notification/drift-detection-with-changes.rego)
+
 ### Plan Policy
 
 - [Check blast radius](./plan/check-blast-radius.rego)
