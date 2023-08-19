@@ -75,6 +75,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Kics severity counter](./plan/kics-severity-counter.rego)
 - [Terrascan violated policies](./plan/terrascan-violated-policies.rego)
 - [Tfsec high severity issues](./plan/tfsec-high-severity-issues.rego)
+- [Warn On Change To Sensitive Resources](./plan/warn-on-change-senstitive-resources.rego)
 
 ### Push Policy
 
