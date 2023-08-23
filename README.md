@@ -38,6 +38,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 ### Approval Policy
 
 - [Allowlist Task Commands](./approval/allowlist-task-commands.rego)
+- [Approval needed outside working hours](./approval/approval-outside-working-hours.rego)
 - [Require private worker](./approval/require-private-worker.rego)
 - [Role-based Approval](./approval/role-based-approval.rego)
 - [Task and Run Approvals](./approval/task-and-run-approvals.rego)
