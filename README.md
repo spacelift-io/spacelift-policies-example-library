@@ -70,6 +70,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Enforce module use policy](./plan/enforce-module-use-policy.rego)
 - [Enforce Password Length](./plan/enforce-password-length.rego)
 - [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego)
+- [Enforce Terraform version list](./plan/enforce-terraform-version-list.rego)
 - [Ensure resource creation before deletion](./plan/ensure-resource-creation-before-deletion.rego)
 - [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego)
 - [Kics severity counter](./plan/kics-severity-counter.rego)
