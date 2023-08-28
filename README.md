@@ -93,6 +93,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Deploy with PR label](./push/deploy-with-pr-label.rego)
 - [Ignore Changes Outside Root](./push/ignore-changes-outside-root.rego)
 - [Terragrunt Monorepo Ignore Changes Outside Root](./push/terragrunt-monorepo-ignore-changes-outside-root.rego)
+- [Lock button pauses runs by push events](/push/lock-button-pauses-runs-by-pushes.rego)
 - [PR comment-driven actions](./push/pr-comment-driven-actions.rego)
 - [PRs Only](./push/prs-only.rego)
 - [Set head commit but don't trigger run](./push/set-head-commit-no-trigger.rego)
