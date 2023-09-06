@@ -6,12 +6,8 @@ package spacelift
 # This policy can be combined with automatic policy attachment (https://docs.spacelift.io/concepts/policy#automatically)
 # to automatically enforce it across stacks.
 
-requires_approval {
-	input.run.state == "UNCONFIRMED"
-}
-
-requires_approval {
-	input.run.type == "TRACKED"
+approve {
+	input.run.state != "UNCONFIRMED"
 }
 
 approval_list = [
@@ -61,14 +57,15 @@ security_approval {
 	approvals[_].session.teams[_] == "Security"
 }
 
-# Approve when Security team approve:
+# Approve when Security team approve and Require at least 1 approval:
 approve {
 	security_approval
+	count(input.reviews.current.approvals) > 0
 }
 
-# Reject when someone not in the Security team approve:
+# Require at least 1 rejection
 reject {
-	not security_approval
+	count(input.reviews.current.rejections) > 0
 }
 
 # Learn more about sampling policy evaluations here:
