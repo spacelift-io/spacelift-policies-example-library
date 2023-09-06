@@ -20,5 +20,5 @@ test_reject_non_security_team {
 
 # Test that reject works when someone from a non-security team tries to approve
 test_reject_works {
-	reject with input as {"reviews": {"current": {"approvals": [{"session": {"teams": ["Development"]}}]}}}
+	reject with input as {"reviews": {"current": {"rejections": [1]}}}
 }
