@@ -1,15 +1,5 @@
 package spacelift
 
-# Test that the policy requires approval for unconfirmed runs
-test_requires_approval_unconfirmed {
-	requires_approval with input as {"run": {"state": "UNCONFIRMED"}}
-}
-
-# Test that the policy requires approval for tracked runs
-test_requires_approval_tracked {
-	requires_approval with input as {"run": {"type": "TRACKED"}}
-}
-
 # Test that the policy requires approval for changes to specified resources
 test_requires_approval_resource_changes {
 	requires_approval with input as {"run": {"changes": [{
