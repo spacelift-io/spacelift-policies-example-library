@@ -41,6 +41,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Approval needed outside working hours](./approval/approval-outside-working-hours.rego)
 - [Require private worker](./approval/require-private-worker.rego)
 - [Role-based Approval](./approval/role-based-approval.rego)
+- [Require Approval from Security Team for certain resources](./approval/require-approval-from-security-team.rego)
 - [Task and Run Approvals](./approval/task-and-run-approvals.rego)
 - [Two Approvals Two Rejections](./approval/two-approvals-two-rejections.rego)
 - [Two Approvals Two Rejections](./approval/two-approvals-two-rejections.rego)
