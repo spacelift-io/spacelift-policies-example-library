@@ -18,14 +18,14 @@ development_team = {"user1", "user2"}
 
 # This rule returns true if the user is in the development team
 is_development_team_member(user) {
-    development_team[_] == user
+	development_team[_] == user
 }
 
 # This rule creates a tracked run from a comment when it is a valid team member
 track {
-    input.pull_request.action == "commented"
-    input.pull_request.comment == concat(" ", ["/spacelift", "deploy", input.stack.id])
-    is_development_team_member(input.pull_request.action_initiator)
+	input.pull_request.action == "commented"
+	input.pull_request.comment == concat(" ", ["/spacelift", "deploy", input.stack.id])
+	is_development_team_member(input.pull_request.action_initiator)
 }
 
 sample = true
