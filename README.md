@@ -101,6 +101,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [PRs Only](./push/prs-only.rego)
 - [Set head commit but don't trigger run](./push/set-head-commit-no-trigger.rego)
 - [Tag-driven Terraform module release flow](./push/tag-driven-tf-module-release-flow.rego)
+- [Track using labels](./push/track-using-labels.rego)
 
 ### Trigger Policy
 
