@@ -18,4 +18,4 @@ deny[sprintf("resource %q does not have all suggested tags (%s)", [resource.addr
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

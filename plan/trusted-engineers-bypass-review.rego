@@ -15,4 +15,4 @@ warn[sprintf(message, [author])] {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

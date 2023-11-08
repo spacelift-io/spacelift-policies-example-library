@@ -1,0 +1,22 @@
+rules:
+  idiomatic:
+    no-defined-entrypoint:
+      level: ignore
+  style:
+    external-reference:
+      level: ignore
+    line-length:
+      level: ignore
+    prefer-some-in-iteration:
+      level: ignore
+    todo-comment:
+      level: ignore
+  testing:
+    test-outside-test-package:
+      level: ignore
+
+capabilities:
+  from:
+    # Feel free to submit a PR to have "spacelift" added as an engine!
+    engine: opa
+    version: v0.51.0

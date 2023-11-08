@@ -14,8 +14,8 @@ allow_fork {
 	valid_owners[input.pull_request.head_owner]
 }
 
-propose = true
+propose := true
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

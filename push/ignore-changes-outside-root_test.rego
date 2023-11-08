@@ -49,7 +49,7 @@ test_propose_not_affected {
 	not propose with affected as false
 }
 
-matching_branch_input = {
+matching_branch_input := {
 	"push": {"branch": "main"},
 	"stack": {"branch": "main"},
 }

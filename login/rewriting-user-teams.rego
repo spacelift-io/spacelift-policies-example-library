@@ -1,10 +1,10 @@
 package spacelift
 
+import future.keywords.in
+
 # This rule will copy each of the existing teams to the new modified list.
 # Remove it if you want to start from scratch.
-team[name] {
-	name := input.session.teams[_]
-}
+team[input.session.teams[_]]
 
 # In addition to boolean rules regulating access to your Spacelift account, the login
 # policy exposes the team rule, which allows one to dynamically rewrite the list of teams
@@ -22,11 +22,11 @@ team["Superwriter"] {
 }
 
 contractor {
-	input.session.teams[_] == "Contractors"
+	"Contractors" in input.session.teams
 }
 
 devops {
-	input.session.teams[_] == "DevOps"
+	"DevOps" in input.session.teams
 }
 
 office_vpn {
@@ -40,4 +40,4 @@ office_vpn {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

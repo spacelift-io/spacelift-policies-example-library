@@ -7,4 +7,4 @@ warn["Some hosts were unreachable"] {
 	input.ansible.dark != {}
 }
 
-sample = true
+sample := true

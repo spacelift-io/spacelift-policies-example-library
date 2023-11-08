@@ -17,13 +17,13 @@ trim_whitespace(s) := concat("-", parts) if {
 }
 
 # Convert all Teams to the ID format
-teams := {x | x := trim_whitespace(input.session.teams[_])}
+teams[trim_whitespace(input.session.teams[_])]
 
 # Find access pattern matching labels and return just "access:team" for each
-labels := {trim_prefix(label, "access:") |
+labels[trim_prefix(label, "access:")] {
 	some label in input.stack.labels
 	not label == ""
-	regex.match("^access:(read|write|deny):[^:]+$", label)
+	regex.match(`^access:(read|write|deny):[^:]+$`, label)
 }
 
 # check if any team would allow request "access" level
@@ -42,4 +42,4 @@ read := test("read")
 deny_write if input.stack.administrative
 
 # Turn on input sampling for all attempts
-sample = true
+sample := true

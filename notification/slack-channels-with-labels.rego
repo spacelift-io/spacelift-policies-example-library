@@ -16,9 +16,9 @@ slack[{"channel_id": channel}] {
 	run := input.run_updated.run
 	run.type == "TRACKED"
 
-	# Here we're using the slack_channels rule to get all channels 
+	# Here we're using the slack_channels rule to get all channels
 	# and iterate over each one.
 	channel = slack_channels[_]
 }
 
-sample = true
+sample := true

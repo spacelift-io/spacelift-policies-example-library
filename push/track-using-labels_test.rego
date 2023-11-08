@@ -11,72 +11,64 @@ mock_stack_labels_with_trackings := {"labels": ["trackeddirectories:tracked", "t
 
 # Test: track rule with different branches
 test_track_different_branches {
-	input := {
+	not track with input as {
 		"push": {"branch": "main"},
 		"stack": {"branch": "develop"},
 	}
-	not track with input as input
 }
 
 # Test: propose rule with non-empty branch
 test_propose_non_empty_branch {
-	input := {
+	propose with input as {
 		"push": {"branch": "main"},
 		"stack": {},
 	}
-	propose with input as input
 }
 
 # Test: propose rule with empty branch
 test_propose_empty_branch {
-	input := {
+	not propose with input as {
 		"push": {"branch": ""},
 		"stack": {},
 	}
-	not propose with input as input
 }
 
 # Test: affected by directory path
 test_affected_directory {
-	input := {
+	affected with input as {
 		"push": mock_push_affected,
 		"stack": mock_stack_labels_with_trackings,
 	}
-	affected with input as input
 }
 
 # Test: affected by file extension
 test_affected_extension {
-	input := {
+	affected with input as {
 		"push": mock_push_affected,
 		"stack": mock_stack_labels_with_trackings,
 	}
-	affected with input as input
 }
 
 # Test: not track by directory path
 test_not_affected_directory {
-	input := {
+	not track with input as {
 		"push": mock_push_not_affected,
 		"stack": mock_stack_labels_with_trackings,
 	}
-	not track with input as input
 }
 
 # Test: not track by file extension
 test_not_affected_extension {
-	input := {
+	not track with input as {
 		"push": mock_push_not_affected,
 		"stack": mock_stack_labels_with_trackings,
 	}
-	not track with input as input
 }
 
 # Test: track rule with not affected files
 test_ignore_not_affected {
-	input := {
+	not track with input as {
 		"push": mock_push_not_affected,
 		"stack": mock_stack_labels_with_trackings,
 	}
-	not track with input as input
 }

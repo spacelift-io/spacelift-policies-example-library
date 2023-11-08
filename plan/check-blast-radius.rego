@@ -27,7 +27,7 @@ blast_radius_too_high[sprintf("change blast radius too high (%d/100)", [blast_ra
 	blast_radius > 100
 }
 
-blast_radius_for_resource(resource) = ret {
+blast_radius_for_resource(resource) := ret {
 	blasts_radii_by_action := {"delete": 10, "update": 5, "create": 1, "no-op": 0}
 
 	ret := sum([value |
@@ -42,10 +42,8 @@ blast_radius_for_resource(resource) = ret {
 blasts_radii_by_type := {"aws_ecs_cluster": 20, "aws_ecs_user": 10, "aws_ecs_role": 5}
 
 # By default, blast radius has a value of 1.
-blast_radius_for_type(type) = 1 {
+blast_radius_for_type(type) := 1 {
 	not blasts_radii_by_type[type]
 }
 
-blast_radius_for_type(type) = ret {
-	blasts_radii_by_type[type] = ret
-}
+blast_radius_for_type(type) := blasts_radii_by_type[type]
