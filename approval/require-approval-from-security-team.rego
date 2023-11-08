@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # This policy approves any runs when someone from Security team approves the changes to the resources in the list,
 # and rejects any runs when someone from other teams tries to approve the changes.
 
@@ -10,7 +12,7 @@ approve {
 	input.run.state != "UNCONFIRMED"
 }
 
-approval_list = [
+approval_list := [
 	"aws_iam_access_key",
 	"aws_security_group",
 	"aws_security_group_rule",
@@ -54,7 +56,7 @@ approvals := input.reviews.current.approvals
 
 # Let's define what it means to be approved by Security team.
 security_approval {
-	approvals[_].session.teams[_] == "Security"
+	"Security" in approvals[_].session.teams
 }
 
 # Approve when Security team approve and Require at least 1 approval:
@@ -70,4 +72,4 @@ reject {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

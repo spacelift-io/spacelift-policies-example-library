@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # This policy is a plan policy, it will validate the resources during the plan phase.
 # More details at: https://docs.spacelift.io/concepts/policy/terraform-plan-policy
 # The "deny" rule fires when a specified resource is being deleted.
@@ -24,9 +26,9 @@ deny[sprintf(message, [resource.address])] {
 	prevent_delete[resource.type]
 
 	# Check if any of the actions on the resource is "delete"
-	resource.change.actions[_] == "delete"
+	"delete" in resource.change.actions
 }
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

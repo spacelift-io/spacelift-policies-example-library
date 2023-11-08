@@ -7,14 +7,14 @@ import future.keywords.in
 # which is provided to the policy if you follow the instructions documented here:
 # https://docs.spacelift.io/concepts/policy/terraform-plan-policy#example-exposing-terraform-configuration-to-the-plan-policy
 
-# TODO:  Upgrade to take into account approved versions of the approved modules, and implement 
+# TODO:  Upgrade to take into account approved versions of the approved modules, and implement
 # ability to warn on deprecated versions, and deny on no longer supported versions!
 
 # This is a map of resource types and the list of modules which are
-# approved to be used to create them.  Note, you do not need to allow explicitly 
+# approved to be used to create them.  Note, you do not need to allow explicitly
 # any "wrapper" modules... this is checking the immediate module parent of the resource itself
 # Some example resources and approved module(s), you of course can specify your spacelift.io hosted modules
-controlled_resource_types = {
+controlled_resource_types := {
 	"aws_s3_bucket": ["terraform-aws-modules/s3-bucket/aws"],
 	"aws_s3_bucket_acl": ["terraform-aws-modules/s3-bucket/aws"],
 	"aws_s3_bucket_website_configuration": ["terraform-aws-modules/s3-bucket/aws"],
@@ -47,14 +47,6 @@ deny[failed_reasons] {
 	][_]
 }
 
-has_key(x, k) {
-	_ = x[k]
-}
-
-contains_value(list, elem) {
-	list[_] = elem
-}
-
 # Walk the "configuration" tree and find all the resources which appear in our
 # "controlled_resource_types"
 controlled_resources[resource] {
@@ -69,7 +61,7 @@ controlled_resources[resource] {
 	resource_type := resources[_].type
 
 	# Filter out resources that are considered controlled
-	has_key(controlled_resource_types, resource_type)
+	resource_type in object.keys(controlled_resource_types)
 
 	# Create an object with the module and the resource type,
 	# this is a set so duplicates will be removed based on this object
@@ -83,6 +75,7 @@ controlled_resources[resource] {
 
 # When the controlled resources are collected, iterate through them and
 # see if they comply
-invalid_resources[failed] {
-	failed := [resource_instance | resource_instance := controlled_resources[_]; not resource_instance.resource_module_name in controlled_resource_types[resource_instance.resource_type]][_]
+invalid_resources[resource_instance] {
+	resource_instance := controlled_resources[_]
+	not resource_instance.resource_module_name in controlled_resource_types[resource_instance.resource_type]
 }

@@ -1,7 +1,7 @@
 package spacelift
 
-# This policy will give you a warning with all the info, low and medium issues number 
-# and deny any run that has a high severity issue. 
+# This policy will give you a warning with all the info, low and medium issues number
+# and deny any run that has a high severity issue.
 
 warn[sprintf(message, [info, low, medium])] {
 	message := "You have: %d info issues, %d low issues, %d medium issues"
@@ -19,7 +19,7 @@ deny[sprintf(message, [results, p])] {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true
 
-# Learn more about how to integrate custom inputs here: 
+# Learn more about how to integrate custom inputs here:
 # https://spacelift.io/blog/integrating-security-tools-with-spacelift

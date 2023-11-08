@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # First, let's define all conditions that require explicit
 # user approval.
 requires_approval {
@@ -18,15 +20,15 @@ approvals := input.reviews.current.approvals
 
 # Let's define what it means to be approved by a director, DevOps amd Security.
 director_approval {
-	approvals[_].session.teams[_] == "Director"
+	"Director" in approvals[_].session.teams
 }
 
 devops_approval {
-	approvals[_].session.teams[_] == "DevOps"
+	"DevOps" in approvals[_].session.teams
 }
 
 security_approval {
-	approvals[_].session.teams[_] == "Security"
+	"Security" in approvals[_].session.teams
 }
 
 # Approve when a single director approves:
@@ -42,4 +44,4 @@ approve {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

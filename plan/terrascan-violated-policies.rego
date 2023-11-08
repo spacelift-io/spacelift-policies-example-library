@@ -1,6 +1,6 @@
 package spacelift
 
-# This policy checks the number of violated terrascan policies 
+# This policy checks the number of violated terrascan policies
 # and shows a warning with the number of them, also, if the number of violated policies is greater than 2, it will deny the run.
 
 warn[sprintf(message, [results])] {
@@ -17,7 +17,7 @@ deny[sprintf(message, [results, p])] {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true
 
-# Learn more about how to integrate custom inputs here: 
+# Learn more about how to integrate custom inputs here:
 # https://spacelift.io/blog/integrating-security-tools-with-spacelift

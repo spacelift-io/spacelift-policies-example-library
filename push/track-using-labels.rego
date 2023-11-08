@@ -38,4 +38,4 @@ affected {
 	endswith(path, tracked_extensions[j])
 }
 
-sample = true
+sample := true

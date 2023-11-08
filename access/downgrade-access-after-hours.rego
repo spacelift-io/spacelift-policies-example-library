@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # When things go wrong it's usually because someone did something, like an infra deployment.
 # Let's try to make sure they're in the office when doing so and restrict write access to business hours
 # and office IP range.
@@ -17,7 +19,7 @@ weekday := time.weekday(now)
 ip := input.request.remote_ip
 
 write {
-	input.session.teams[_] == "Product team"
+	"Product team" in input.session.teams
 }
 
 deny_write {

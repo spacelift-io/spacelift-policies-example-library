@@ -8,4 +8,4 @@ slack[{"channel_id": "C000000"}] {
 	count(input.run_updated.run.changes) > 0
 }
 
-sample = true
+sample := true

@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # This policy requires the following permissions on your VCS provider:
 # - Read access to `issues` repository permissions
 # - Subscribe to `issues:comments` event
@@ -14,11 +16,11 @@ package spacelift
 # Furthermore, Spacelift only processes event data for new comments,
 # and will not receive event data for edited or deleted comments.
 
-development_team = {"user1", "user2"}
+development_team := {"user1", "user2"}
 
 # This rule returns true if the user is in the development team
 is_development_team_member(user) {
-	development_team[_] == user
+	user in development_team
 }
 
 # This rule creates a tracked run from a comment when it is a valid team member
@@ -28,4 +30,4 @@ track {
 	is_development_team_member(input.pull_request.action_initiator)
 }
 
-sample = true
+sample := true

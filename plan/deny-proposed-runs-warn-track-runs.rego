@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # The best way to use warn and deny rules together depends on your preferred Git workflow.
 # We've found short-lived feature branches with Pull Requests to the tracked branch to work relatively well.
 # In this scenario, the `type` of the `run` is important - it's _PROPOSED_ for commits to feature branches,
@@ -32,11 +34,11 @@ warn[reason] {
 
 iam_user_created[sprintf("Do not create IAM users: (%s)", [resource.address])] {
 	resource := input.terraform.resource_changes[_]
-	resource.change.actions[_] == "create"
+	"create" in resource.change.actions
 
 	resource.type == "aws_iam_user"
 }
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

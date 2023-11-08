@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.in
+
 # This example plan policy prevents you from creating weak passwords, and warns
 # you when passwords are meh.
 #
@@ -18,10 +20,10 @@ warn[sprintf("We advise that passwords have at least 20 characters (%s)", [resou
 
 new_password[resource] {
 	resource := input.terraform.resource_changes[_]
-	resource.change.actions[_] == "create"
+	"create" in resource.change.actions
 	resource.type == "random_password"
 }
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

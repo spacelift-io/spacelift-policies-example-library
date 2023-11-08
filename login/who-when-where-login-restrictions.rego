@@ -1,7 +1,7 @@
 package spacelift
 
-# The example below is pretty extreme but it shows a very comprehensive 
-# policy where you restrict Spacelift access to users logging in from the office IP 
+# The example below is pretty extreme but it shows a very comprehensive
+# policy where you restrict Spacelift access to users logging in from the office IP
 # during business hours. You may want to use elements of this policy to create your own
 # - less draconian - version, or keep it this way to support everyone's work-life balance.
 
@@ -18,7 +18,7 @@ ip := input.request.remote_ip
 
 # Now let's define use those above variables to define the criteria
 # for who can have write access, when, and from where (the ip)
-# 
+#
 # Only allow access during weekdays
 deny {
 	weekend[weekday]
@@ -40,4 +40,4 @@ deny {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true

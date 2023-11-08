@@ -1,6 +1,6 @@
 package spacelift
 
-#This is the default push policy with the condition that the locked button cannot be set by anyone.
+# This is the default push policy with the condition that the locked button cannot be set by anyone.
 
 track {
 	affected
@@ -24,4 +24,4 @@ affected {
 
 # Learn more about sampling policy evaluations here:
 # https://docs.spacelift.io/concepts/policy#sampling-policy-inputs
-sample = true
+sample := true
