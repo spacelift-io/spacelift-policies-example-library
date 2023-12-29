@@ -74,6 +74,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Enforce Instance Type List](./plan/enforce-instance-type-list.rego)
 - [Enforce module use policy](./plan/enforce-module-use-policy.rego)
 - [Enforce Password Length](./plan/enforce-password-length.rego)
+- [Enforce Google Cloud SQL Instance Networks](./plan/enforce-sqlinstance-network.rego)
 - [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego)
 - [Enforce Terraform version list](./plan/enforce-terraform-version-list.rego)
 - [Ensure resource creation before deletion](./plan/ensure-resource-creation-before-deletion.rego)
