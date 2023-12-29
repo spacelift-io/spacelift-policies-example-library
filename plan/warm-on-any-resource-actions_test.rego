@@ -1,22 +1,54 @@
 package spacelift
 
-# Test: No warning for non-destructive actions
-test_no_warning_for_non_destructive {
-	warn_set := {msg | msg := warn[_]}
-	count(warn_set) == 0 with input as {"terraform": {"resource_changes": [{"address": "aws_instance.example", "change": {"actions": ["change"]}}]}}
+# Test cases for is_destructive_action
+test_is_destructive_action_delete {
+	is_destructive_action("delete")
 }
 
-# Test: Warning for a deleted resource
-test_warning_for_deleted_resource {
-	warn with input as {"terraform": {"resource_changes": [{"address": "aws_instance.example", "change": {"actions": ["delete"]}}]}} == {"Warning: Resource 'aws_instance.example' is being deleted"}
+test_is_destructive_action_create {
+	is_destructive_action("create")
 }
 
-# Test: Warning for a recreated resource
-test_warning_for_recreated_resource {
-	warn with input as {"terraform": {"resource_changes": [{"address": "aws_instance.example", "change": {"actions": ["create"]}}]}} == {"Warning: Resource 'aws_instance.example' is being created"}
+test_is_destructive_action_update {
+	is_destructive_action("update")
 }
 
-# Test: Warning for a recreated resource
-test_warning_for_recreated_resource {
-	warn with input as {"terraform": {"resource_changes": [{"address": "aws_instance.example", "update": {"actions": ["update"]}}]}} == {"Warning: Resource 'aws_instance.example' is being updated"}
+test_is_destructive_action_non_destructive {
+	not is_destructive_action("read")
+}
+
+# Test cases for warn
+test_warn_with_delete {
+	msg := "Warning: Resource 'example.resource' is being deleted"
+	warn[msg] with input as {"terraform": {"resource_changes": [{
+		"address": "example.resource",
+		"change": {"actions": ["delete"]},
+	}]}}
+}
+
+test_warn_with_create {
+	msg := "Warning: Resource 'example.resource' is being created"
+	warn[msg] with input as {"terraform": {"resource_changes": [{
+		"address": "example.resource",
+		"change": {"actions": ["create"]},
+	}]}}
+}
+
+test_warn_with_update {
+	msg := "Warning: Resource 'example.resource' is being updated"
+	warn[msg] with input as {"terraform": {"resource_changes": [{
+		"address": "example.resource",
+		"change": {"actions": ["update"]},
+	}]}}
+}
+
+test_warn_without_destructive_action {
+	input := {"terraform": {"resource_changes": [{
+		"address": "example.resource",
+		"change": {"actions": ["read"]},
+	}]}}
+	no_warnings := {msg |
+		warn[msg] with input as input
+	}
+	count(no_warnings) == 0
 }

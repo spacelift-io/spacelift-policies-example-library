@@ -10,13 +10,6 @@ warn[msg] {
 
 # Helper function to determine if an action is 'delete', 'create' or 'update'
 is_destructive_action(action) {
-	action == "delete"
-}
-
-is_destructive_action(action) {
-	action == "create"
-}
-
-is_destructive_action(action) {
-	action == "update"
+	destructive_actions := {"delete", "create", "update"}
+	action == destructive_actions[_]
 }
