@@ -59,6 +59,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 
 - [Drift Detection with changes](./notification/drift-detection-with-changes.rego)
 - [Slack Channels set with labels](./notification/slack-channels-with-labels.rego)
+- [Notification for link to failure logs](./notification/notification-failure.rego)
 
 ### Plan Policy
 
