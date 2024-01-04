@@ -52,6 +52,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
   - [GitHub](./login/external-contributor-access-github.rego)
   - [Google](./login/external-contributor-access-google.rego)
 - [Managing access levels within an organization](./login/access-levels-within-an-organization.rego)
+- [Readers Writers Admins Teams](./login/readers-writers-admins-teams.rego)
 - [Rewriting User Teams](./login/rewriting-user-teams.rego)
 - [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego)
 
@@ -78,6 +79,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Ensure resource creation before deletion](./plan/ensure-resource-creation-before-deletion.rego)
 - [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego)
 - [Kics severity counter](./plan/kics-severity-counter.rego)
+- [Mandatory and required labels for stacks](./plan/mandatory-and-acceptable-labels-stack.rego)
 - [Require human review for drift detection reconciliation](./plan/require-human-review-for-drift-detection-reconciliation.rego)
 - [Require human review for unreachable Ansible hosts](./plan/require-human-review-for-unreachable-ansible-hosts.rego)
 - [Require human review for resource update and deletion](./plan/require-human-review-for-update-deletion.rego)
