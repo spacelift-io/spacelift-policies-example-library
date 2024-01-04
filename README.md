@@ -52,6 +52,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
   - [GitHub](./login/external-contributor-access-github.rego)
   - [Google](./login/external-contributor-access-google.rego)
 - [Managing access levels within an organization](./login/access-levels-within-an-organization.rego)
+- [Readers Writers Admins Teams](./login/readers-writers-admins-teams.rego)
 - [Rewriting User Teams](./login/rewriting-user-teams.rego)
 - [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego)
 
