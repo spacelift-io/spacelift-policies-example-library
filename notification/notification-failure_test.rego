@@ -8,7 +8,7 @@ import future.keywords.in
 # Test Case 1: Run failed with 'deny' outcome
 test_run_failed_with_deny if {
 	input := {
-		"account": {"name": "Daniellem97"},
+		"account": {"name": "<example>"},
 		"run_updated": {
 			"run": {"state": "FAILED", "id": "run123"},
 			"stack": {"id": "stack123"},
@@ -22,7 +22,7 @@ test_run_failed_with_deny if {
 # Test Case 2: Run failed with 'reject' outcome
 test_run_failed_with_reject if {
 	input := {
-		"account": {"name": "Daniellem97"},
+		"account": {"name": "<example>"},
 		"run_updated": {
 			"run": {"state": "FAILED", "id": "run123"},
 			"stack": {"id": "stack123"},
@@ -36,7 +36,7 @@ test_run_failed_with_reject if {
 # Test Case 3: Run failed with neither 'deny' nor 'reject' outcome
 test_run_failed_with_neither if {
 	input := {
-		"account": {"name": "Daniellem97"},
+		"account": {"name": "<example>"},
 		"run_updated": {
 			"run": {"state": "FAILED", "id": "run123"},
 			"stack": {"id": "stack123"},
@@ -50,7 +50,7 @@ test_run_failed_with_neither if {
 # Test Case 4: Run has not failed
 test_run_not_failed if {
 	input := {
-		"account": {"name": "Daniellem97"},
+		"account": {"name": "<example>"},
 		"run_updated": {
 			"run": {"state": "PASSED", "id": "run123"},
 			"stack": {"id": "stack123"},
