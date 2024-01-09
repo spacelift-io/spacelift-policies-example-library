@@ -1,43 +1,39 @@
 package spacelift
 
-# Define team roles
-writers := {"team1", "team2", "team3"}
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
-admins := {"team4", "team5", "team6"}
+# Define team roles
+admins := {"team1", "team2", "team3"}
+
+writers := {"team4", "team5", "team6"}
 
 readers := {"team7", "team8", "team9"}
 
-# Extract login from session
-login := input.session.teams
-
-# Allow based on team role
-allow { # Allow writers
-	writers[login]
-}
-
-allow { # Allow admins
-	admins[login]
-}
-
-allow { # Allow readers
-	readers[login]
-}
-
 # Space access rules
-# Check if user is an admin and assign admin access to the space
-space_admin[space.id] {
-	space := input.spaces[_]
-	admins[login]
+# Admin access rule - highest priority
+space_admin contains space.id if {
+	some space in input.spaces
+	some login in input.session.teams
+	admins[login] # User is an admin
 }
 
-# Check if user is a writer and assign write access to the space
-space_write[space.id] {
-	space := input.spaces[_]
-	writers[login]
+# Writer access rule - second priority
+# Only consider this rule if the user is not an admin
+space_write contains space.id if {
+	some space in input.spaces
+	some login in input.session.teams
+	writers[login] # User is a writer
+	not admins[login] # Ensure user is not an admin
 }
 
-# Check if user is a reader and assign read access to the space
-space_read[space.id] {
-	space := input.spaces[_]
-	readers[login]
+# Reader access rule - third priority
+# Only consider this rule if the user is neither an admin nor a writer
+space_read contains space.id if {
+	some space in input.spaces
+	some login in input.session.teams
+	readers[login] # User is a reader
+	not admins[login] # Ensure user is not an admin
+	not writers[login] # Ensure user is not a writer
 }
