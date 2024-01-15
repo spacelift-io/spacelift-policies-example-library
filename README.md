@@ -78,6 +78,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego)
 - [Kics severity counter](./plan/kics-severity-counter.rego)
 - [Mandatory and Acceptable Labels for GCP resources](./plan/mandatory-and-acceptable-labels-gcp.rego)
+- [Mandatory and required labels for stacks](./plan/mandatory-and-acceptable-labels-stack.rego)
 - [Require human review for drift detection reconciliation](./plan/require-human-review-for-drift-detection-reconciliation.rego)
 - [Require human review for unreachable Ansible hosts](./plan/require-human-review-for-unreachable-ansible-hosts.rego)
 - [Require human review for resource update and deletion](./plan/require-human-review-for-update-deletion.rego)
