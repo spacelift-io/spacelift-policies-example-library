@@ -52,6 +52,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
   - [GitHub](./login/external-contributor-access-github.rego)
   - [Google](./login/external-contributor-access-google.rego)
 - [Managing access levels within an organization](./login/access-levels-within-an-organization.rego)
+- [Readers Writers Admins Teams](./login/readers-writers-admins-teams.rego)
 - [Rewriting User Teams](./login/rewriting-user-teams.rego)
 - [Who When Where Login Restrictions](./login/who-when-where-login-restrictions.rego)
 
@@ -59,6 +60,7 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 
 - [Drift Detection with changes](./notification/drift-detection-with-changes.rego)
 - [Slack Channels set with labels](./notification/slack-channels-with-labels.rego)
+- [Notification for link to failure logs](./notification/notification-failure.rego)
 
 ### Plan Policy
 
@@ -72,12 +74,14 @@ _Access policies have been deprecated. Please [read this](./access/README.md) fo
 - [Enforce Instance Type List](./plan/enforce-instance-type-list.rego)
 - [Enforce module use policy](./plan/enforce-module-use-policy.rego)
 - [Enforce Password Length](./plan/enforce-password-length.rego)
+- [Enforce Google Cloud SQL Instance Networks](./plan/enforce-sqlinstance-network.rego)
 - [Enforce Tags on Resources](./plan/enforce-tags-on-resources.rego)
 - [Enforce Terraform version list](./plan/enforce-terraform-version-list.rego)
 - [Ensure resource creation before deletion](./plan/ensure-resource-creation-before-deletion.rego)
 - [Infracost Monthly Cost Restriction](./plan/infracost-monthly-cost-restriction.rego)
 - [Kics severity counter](./plan/kics-severity-counter.rego)
 - [Mandatory and Acceptable Labels for GCP resources](./plan/mandatory-and-acceptable-labels-gcp.rego)
+- [Mandatory and required labels for stacks](./plan/mandatory-and-acceptable-labels-stack.rego)
 - [Mandatory and required labels for stacks](./plan/mandatory-and-acceptable-labels-stack.rego)
 - [Require human review for drift detection reconciliation](./plan/require-human-review-for-drift-detection-reconciliation.rego)
 - [Require human review for unreachable Ansible hosts](./plan/require-human-review-for-unreachable-ansible-hosts.rego)
