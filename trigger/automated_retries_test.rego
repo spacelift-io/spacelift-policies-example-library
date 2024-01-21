@@ -1,7 +1,9 @@
 package spacelift_test
 
 import data.spacelift
-import future.keywords
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
 # Test Case 1: Failed and Tracked Run Without Trigger
 test_failed_tracked_run_without_trigger if {

@@ -1,6 +1,8 @@
 package spacelift
 
-import future.keywords
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
 # Sometimes Terraform or Pulumi deployments fail for a reason that has nothing to do
 # with the code - think eventual consistency between various cloud subsystems, transient
