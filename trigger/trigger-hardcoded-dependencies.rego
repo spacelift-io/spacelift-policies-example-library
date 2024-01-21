@@ -1,6 +1,8 @@
 package spacelift
 
-import future.keywords
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
 # This policy triggers a predefined list of Stacks when a Run finishes successfully
 # to create a complex workflow that spans multiple Stacks.

@@ -1,6 +1,8 @@
 package spacelift
 
-import future.keywords
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
 # This example trigger policy will cause every stack that declares dependency on
 # the current one to get triggered when the current one is successfully updated.

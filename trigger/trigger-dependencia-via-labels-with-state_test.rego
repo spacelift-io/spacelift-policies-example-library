@@ -1,7 +1,9 @@
 package spacelift
 
 import data.spacelift
-import future.keywords
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
 # Test Case 1: Dependency and State Match
 test_dependency_and_state_match if {
