@@ -2,7 +2,7 @@ package spacelift
 
 import future.keywords.contains
 import future.keywords.if
-import future.keywords.is
+import future.keywords.in
 
 # This policy will cause every stack that declares dependency on the current stack
 # and state to get triggered when the conditions are met.
