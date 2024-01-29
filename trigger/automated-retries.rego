@@ -1,12 +1,16 @@
 package spacelift
 
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
+
 # Sometimes Terraform or Pulumi deployments fail for a reason that has nothing to do
 # with the code - think eventual consistency between various cloud subsystems, transient
 # API errors etc. It would be great if you could restart the failed run. Oh, and let's
 # make sure new runs are not created in a crazy loop - since policy-triggered runs
 # trigger another policy evaluation:
 
-trigger[stack.id] {
+trigger contains stack.id if {
 	stack := input.stack
 	input.run.state == "FAILED"
 	input.run.type == "TRACKED"

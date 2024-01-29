@@ -1,21 +1,25 @@
 package spacelift
 
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
+
 # This policy triggers a predefined list of Stacks when a Run finishes successfully
 # to create a complex workflow that spans multiple Stacks.
 
-trigger["stack-one"] {
+trigger contains "stack-one" if {
 	finished
 }
 
-trigger["stack-two"] {
+trigger contains "stack-two" if {
 	finished
 }
 
-trigger["stack-three"] {
+trigger contains "stack-three" if {
 	finished
 }
 
-finished {
+finished if {
 	input.run.state == "FINISHED"
 	input.run.type == "TRACKED"
 }
