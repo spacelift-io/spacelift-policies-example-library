@@ -1,0 +1,14 @@
+name: Downgrade access after hours
+source: downgrade-access-after-hours.rego
+type: access
+description: |
+  When things go wrong it's usually because someone did something, like an infra deployment.
+  Let's try to make sure they're in the office when doing so and restrict write access to business hours
+  and office IP range.
+
+  This policy is best combined with one that gives read access.
+labels: 
+- access
+- business hours
+- downgrade
+- after hours
