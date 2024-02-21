@@ -1,0 +1,10 @@
+name: Label based team access
+source: label-based-team-access.rego
+type: access
+description: |
+  This policy allow you to tag a repo with a "access:<level>:<team>" label to
+  grant access to Stacks via labels.
+labels:
+  - access
+  - label based
+  - teams
