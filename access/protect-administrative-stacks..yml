@@ -1,0 +1,13 @@
+name: Protect administrative stacks
+source: protect-administrative-stacks.rego
+type: access
+description: |
+  Administrative stacks are powerful - getting write access to one is almost
+  as good as being an admin - you can define and attach contexts and policies.
+  So let's deny write access to them entirely. This works since access policies
+  are not evaluated for admin users.
+labels:
+  - access
+  - administrative
+  - stacks
+  - protection
