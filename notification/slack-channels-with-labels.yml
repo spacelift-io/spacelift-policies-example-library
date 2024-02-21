@@ -1,0 +1,12 @@
+name: Slack Channels with Labels
+source: slack-channels-with-labels.rego
+type: notification
+description: |
+  This policy allows to route notifications to Slack channels based on labels specified on a stack.
+labels:
+  - notification
+  - slack
+  - channels
+  - labels
+  - stack
+  - routing

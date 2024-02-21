@@ -1,0 +1,10 @@
+name: Notification Failure
+source: notification-failure.rego
+type: notification
+description: |
+  This policy is used send a notification to Slack when a run fails.
+labels:
+  - notification
+  - failure
+  - slack
+  - run

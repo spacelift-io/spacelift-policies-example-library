@@ -1,0 +1,10 @@
+name: Drift Detection with Changes
+source: drift-detection-with-changes.rego
+type: notification
+description: |
+  This policy is used send a notification to Slack when drift is detected in the infrastructure.
+labels:
+  - notification
+  - drift detection
+  - changes
+  - slack
