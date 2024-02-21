@@ -1,0 +1,12 @@
+name: Mandatory and acceptable labels gcp
+source: mandatory-and-acceptable-labels-gcp.rego
+type: plan
+description: |
+  This example policy allows you to specify manadatory and acceptable labels for gcp resources.
+labels:
+  - plan
+  - gcp
+  - labels
+  - tags
+
+  
