@@ -1,0 +1,13 @@
+name: Set Head Commit No Trigger
+source: set-head-commit-no-trigger.rego
+type: push
+description: |
+  This policy is designed to set the head commit without initiating a tracked run, addressing scenarios such as where the run is triggered by external processes. 
+  It ensures that the head commit is updated to reflect the latest changes in the tracked branch. 
+  This approach is particularly useful in complex CI/CD workflows where multiple triggers may result in redundant runs, offering a solution to streamline the process and focus on efficiency.
+
+labels: 
+- commit
+- no-trigger
+- track
+- push

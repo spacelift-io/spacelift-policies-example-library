@@ -1,0 +1,11 @@
+name: Trigger Hardcoded Dependencies
+source: trigger-hardcoded-dependencies.rego
+type: trigger
+description: |
+  This trigger policy facilitates the management of hardcoded dependencies within your stacks. By specifying dependencies
+  directly, it ensures that necessary precursors are met before proceeding with deployments or updates. 
+labels: 
+- trigger
+- hardcoded
+- dependencies
+- order

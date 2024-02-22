@@ -1,0 +1,15 @@
+name: Track Using Labels
+source: track-using-labels.rego
+type: push
+description: |
+  This push policy is designed to enable dynamic start tracked/proposed runs within stacks, based on changes to files that match specific criteria. 
+  It operates by checking for consistency between the branch of an incoming push and the stack's designated branch. 
+  Additionally, it leverages stack labels to identify and act upon changes in specific directories or files with certain extensions. 
+  Labels such as "trackeddirectories:" and "trackedextensions:" are used to define these criteria. 
+  The policy decides to trigger a track or propose run based on whether the changes affect the files in these tracked paths or extensions.
+labels: 
+- tracked
+- proposed
+- labels
+- directories
+- extensions

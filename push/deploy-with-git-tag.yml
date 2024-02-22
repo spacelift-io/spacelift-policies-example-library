@@ -1,0 +1,12 @@
+name: Deploy With Git Tag
+source: deploy-with-git-tag.rego
+type: push
+description: |
+  This policy is designed to trigger deployments based on the creation of new git tags, specifically those that follow semantic versioning (e.g., X.Y.Z). It leverages regex to ensure that only tags matching the semantic version format initiate a tracked run, focusing deployment processes on versioned releases rather than branch updates. 
+  This approach aligns deployment activities with version milestones, facilitating a clear and manageable release process.
+  
+labels: 
+- git
+- tag
+- deployment
+- semantic versioning

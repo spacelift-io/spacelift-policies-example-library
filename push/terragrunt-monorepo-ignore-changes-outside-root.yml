@@ -1,0 +1,16 @@
+name: Terragrunt Monorepo Ignore Changes Outside Root
+source: terragrunt-monorepo-ignore-changes-outside-root.rego
+type: push
+description: |
+  This push policy is tailored for Terragrunt monorepo setups, where it's crucial to focus on changes within specific project roots. It ensures that only changes within a project's root directory trigger Spacelift runs. The policy distinguishes between:
+  -Tracked runs triggered by pushes to the tracked branch with changes in the root.
+  -Proposed runs for changes in the root on other branches.
+  -Tag pushes are ignored to maintain focus on relevant changes.
+  
+  The policy considers files affected if they are within the stack's project root and are either Terraform (.tf), HCL (.hcl), or rego (.rego) files, aligning with the common file types used in infrastructure as code environments.
+
+labels: 
+- terragrunt
+- monorepo
+- git
+- push

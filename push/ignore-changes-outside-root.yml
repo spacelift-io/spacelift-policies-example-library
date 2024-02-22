@@ -1,0 +1,16 @@
+name: Ignore Changes Outside Root
+source: ignore-changes-outside-root.rego
+type: push
+description: |
+  Designed for Git push events, this policy filters out all changes that do not occur within a project's root directory. It standardizes the workflow by:
+  - Triggering tracked runs for changes within the project root on the tracked branch.
+  - Proposing runs for changes within the project root on all other branches.
+  - Ignoring tag pushes and any changes outside the project root.
+  
+  The policy's focus is to maintain relevance and efficiency in CI/CD pipelines by ensuring that only significant changes—specifically, source files within the project root—initiate Spacelift runs.
+
+labels: 
+- push
+- terraform
+- ignore-external
+- project-root

@@ -1,0 +1,16 @@
+name: Deploy With Pr Label
+source: deploy-with-pr-label.rego
+type: push
+description: |
+  This policy enables automatic deployment based on the presence of a specific label ("deploy") on a pull request (PR). It ensures streamlined operations where:
+  - Tracked runs are triggered for PRs marked with the "deploy" label, facilitating immediate deployment actions for approved changes.
+  - Proposals for runs are the default behavior, ensuring that all changes are evaluated, but only those with explicit deployment intent are automatically progressed.
+
+  The policy optimizes the deployment process by aligning runs with development workflows, specifically leveraging PR labels to control deployment timing and execution, enhancing both automation and control within CI/CD pipelines.
+
+labels: 
+- pull request
+- label
+- deploy
+- push
+- automation

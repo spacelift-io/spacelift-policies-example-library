@@ -1,0 +1,13 @@
+name: Cancel In-Progress Runs
+source: cancel-in-progress-runs.rego
+type: push
+description: |
+  This policy is designed to pre-empt and cancel any Spacelift runs that are currently in progress but meet specific criteria. It targets PROPOSED runs that are QUEUED and associated with the same branch as the pull request initiating the current run. 
+  This capability is particularly useful in fast-paced development environments where the most recent push should take precedence, ensuring resources are allocated to the latest changes and reducing wait times for integration or deployment.
+
+  By automatically cancelling queued or awaiting confirmation runs for the same branch, this policy optimizes the CI/CD pipeline's efficiency and responsiveness.
+
+labels: 
+- cancel
+- push
+- in-progress
