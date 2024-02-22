@@ -1,0 +1,10 @@
+name: Access Levels Within an Organization
+source: access-levels-within-an-organization.rego
+type: login
+description: |
+  This login policy grants access to everyone in the organization. Members of the "DevOps" team are designated as admins.
+  
+labels:
+- access-control
+- organization-access
+- login

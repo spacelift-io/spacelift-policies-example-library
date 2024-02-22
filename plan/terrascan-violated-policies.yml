@@ -1,0 +1,16 @@
+name: Terrascan Violated Policies
+source: terrascan-violated-policies.rego
+type: plan
+description: |
+  This policy integrates Terrascan, a comprehensive static code analysis tool for Terraform, to monitor and enforce security best practices. 
+  It issues a warning if any violated policies are detected, providing a count of such incidents. 
+  More critically, if the number of violated policies exceeds a set threshold (specifically, more than 2), the policy will deny the run, preventing potentially insecure infrastructure changes from being deployed.
+
+  The goal is to embed security within the CI/CD process, ensuring that infrastructure as code (IaC) deployments adhere to established security guidelines and reducing the risk of deploying vulnerable or non-compliant resources.
+
+labels: 
+- terrascan
+- security
+- policy-violation
+- compliance
+- plan

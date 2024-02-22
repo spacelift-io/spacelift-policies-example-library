@@ -1,0 +1,10 @@
+name: Require Approval from Security Team
+source: require-approval-from-security-team.rego
+type: approval
+description: |
+  This policy approves any runs when someone from the Security team approves the changes to the specified resources 
+  and rejects any runs when someone from other teams tries to approve the changes. It ensures that changes to critical 
+  resources are reviewed and approved by the Security team.
+labels:
+  - approval
+  - security

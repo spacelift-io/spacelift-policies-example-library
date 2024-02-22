@@ -1,0 +1,9 @@
+name: Two Approvals, No Rejections
+source: two-approvals-no-rejections.rego
+type: approval
+description: |
+  This approval policy requires two approvals for each unconfirmed run and fails the run on any rejections. 
+  
+labels:
+- approval
+- security

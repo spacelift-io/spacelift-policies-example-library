@@ -1,0 +1,10 @@
+name: Approval Outside Working Hours
+source: approval-outside-working-hours.rego
+type: approval
+description: |
+  This policy automatically approves runs during working hours (9am to 5pm UTC) on weekdays, but requires at least 
+  one approval outside of these hours or during weekends. It also rejects runs with any rejections to ensure that 
+  changes are reviewed and approved by the appropriate personnel.
+labels:
+  - approval
+  - working-hours

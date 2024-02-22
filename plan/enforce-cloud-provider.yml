@@ -1,0 +1,10 @@
+name: Enforce Cloud Provider Policy
+source: enforce-cloud-provider.rego
+type: plan
+description: |
+  This policy ensures adherence to the organization's cloud provider strategy by enforcing the exclusive use of a specific cloud provider for deployments. 
+
+labels: 
+- cloud-provider
+- aws
+- plan

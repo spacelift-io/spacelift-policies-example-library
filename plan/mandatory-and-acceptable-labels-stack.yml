@@ -1,0 +1,15 @@
+name: Mandatory And Acceptable Labels Stack
+source: mandatory-and-acceptable-labels-stack.rego
+type: plan
+description: |
+  This policy ensures that stacks adhere to labeling conventions by verifying the presence of mandatory labels and the absence of unacceptable ones. 
+  Mandatory labels such as "mandatory1" and "mandatory2" must be present for a stack to be compliant. Additionally, while labels "acceptable1" and "acceptable2" are permitted, the presence of any labels outside these specified acceptable and mandatory categories triggers a denial.
+
+  The policy aims to enforce consistent labeling practices across stacks, facilitating better organization, filtering, and governance of infrastructure resources within Spacelift.
+
+labels: 
+- labels
+- compliance
+- plan
+- mandatory
+- acceptable

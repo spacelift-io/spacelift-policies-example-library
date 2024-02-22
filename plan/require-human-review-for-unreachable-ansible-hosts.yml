@@ -1,0 +1,15 @@
+name: Require Human Review For Unreachable Ansible Hosts
+source: require-human-review-for-unreachable-ansible-hosts.rego
+type: plan
+description: |
+  This policy targets Ansible, specifically issuing a warning when any of the Ansible hosts are unreachable during execution. 
+  The presence of unreachable hosts could indicate potential issues with configuration, network connectivity, or host status, necessitating further investigation. 
+
+  By requiring human review in such cases, this policy ensures that these warnings are not overlooked, promoting proactive troubleshooting and resolution to maintain the integrity and reliability of the infrastructure automation tasks.
+
+labels: 
+- ansible
+- unreachable-hosts
+- human-review
+- troubleshooting
+- plan

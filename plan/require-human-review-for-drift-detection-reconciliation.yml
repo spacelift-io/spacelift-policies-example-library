@@ -1,0 +1,15 @@
+name: Require Human Review For Drift Detection Reconciliation
+source: require-human-review-for-drift-detection-reconciliation.rego
+type: plan
+description: |
+  This policy mandates manual approval for reconciling any detected drifts in infrastructure configurations. 
+  Drift detection is a crucial aspect of maintaining the desired state of infrastructure, identifying discrepancies between the actual state and the expected configuration as defined in code. 
+
+  When drift is detected, this policy ensures that changes aimed at reconciliation are not automatically applied but instead are subjected to human review. 
+  This requirement for manual approval helps in ensuring that the proposed changes are indeed appropriate and in alignment with the organization's infrastructure management policies and practices.
+
+labels: 
+- drift-detection
+- manual-approval
+- human-review
+- plan

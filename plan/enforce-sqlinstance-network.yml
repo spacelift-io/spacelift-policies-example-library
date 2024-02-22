@@ -1,0 +1,13 @@
+name: Enforce SQLInstance Network
+source: enforce-sqlinstance-network.rego
+type: plan
+description: |
+  This policy aims to enhance security by denying changes that would expose a Cloud SQL instance to the public internet (0.0.0.0/0). 
+  By scrutinizing changes to Google Cloud SQL instances during the planning phase, the policy ensures that no instance is inadvertently made accessible to any IP address, thereby mitigating potential security risks. 
+  The enforcement applies to both the creation and updating of resources, promoting best practices in cloud security and infrastructure management.
+
+labels: 
+- cloud-sql
+- network-security
+- google-cloud
+- terraform

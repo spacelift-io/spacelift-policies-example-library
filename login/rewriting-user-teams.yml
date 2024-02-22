@@ -1,0 +1,11 @@
+name: Rewriting User Teams
+source: rewriting-user-teams.rego
+type: login
+description: |
+  This policy dynamically rewrites the list of teams received from the identity provider based on specific criteria. 
+  It defines a Superwriter role for users who are logging in from an office VPN, are members of the DevOps team, and are not members of the Contractors team.
+
+labels:
+- user-teams
+- access-control
+- login

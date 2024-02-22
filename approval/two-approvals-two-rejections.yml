@@ -1,0 +1,10 @@
+name: Two Approvals, Two Rejections
+source: two-approvals-two-rejections.rego
+type: approval
+description: |
+  This approval policy requires two approvals for each unconfirmed run and allows only one rejection. 
+  All reviewers who reject the run must change their decision for the run to proceed.
+  
+labels:
+- approval
+- security

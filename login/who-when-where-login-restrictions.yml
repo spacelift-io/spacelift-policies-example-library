@@ -1,0 +1,11 @@
+name: Who When Where Login Restrictions
+source: who-when-where-login-restrictions.rego
+type: login
+description: |
+  This policy restricts Spacelift access to users logging in from specific IP addresses and during specific hours on weekdays. 
+  It denies access during weekends, outside of business hours, and from IP addresses not included in the specified CIDR block.
+
+labels:
+- login-restrictions
+- access-control
+- login
