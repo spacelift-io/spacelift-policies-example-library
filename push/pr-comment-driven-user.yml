@@ -1,0 +1,13 @@
+name: PR Comment Driven User
+source: pr-comment-driven-user.rego
+type: push
+description: |
+  This push policy leverages pull request comments to initiate Spacelift runs, specifically designed for customizable workflows. 
+  It requires read access to repository issues and subscription to issues comments events on the VCS provider.
+  The policy processes comments beginning with `/spacelift` to trigger actions, such as deploying a stack, provided the comment is made by a member of the development team. 
+  This ensures controlled execution based on team member inputs without processing edited or deleted comments.
+labels: 
+- pull request
+- comments
+- deployment
+- team

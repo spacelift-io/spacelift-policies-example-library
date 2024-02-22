@@ -1,0 +1,10 @@
+name: Trigger Dependencies Via Labels With State
+source: trigger-dependencies-via-labels-with-state.rego
+type: trigger
+description: |
+  This policy automates the triggering of dependencies based on specific labels and state of the stack. 
+labels: 
+- trigger
+- dependencies
+- labels
+- state

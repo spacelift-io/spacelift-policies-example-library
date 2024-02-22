@@ -1,0 +1,14 @@
+name: PRs Only
+source: prs-only.rego
+type: push
+description: |
+  This policy ensures that runs are closely aligned with pull request (PR) activities, focusing on enhancing the integration and deployment workflows. 
+  It triggers proposed runs for any PR event, while tracked runs are specifically reserved for PR merges into the tracked branch. 
+  By ignoring all non-PR related events, this policy streamlines the deployment process, ensuring that only meaningful changes that have undergone review are considered for deployment. 
+  This approach is critical for maintaining high standards of code quality and efficiency.
+
+labels: 
+- PR
+- pull request
+- merge
+- push

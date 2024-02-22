@@ -1,0 +1,15 @@
+name: Lock Button Pauses Runs By Pushes
+source: lock-button-pauses-runs-by-pushes.rego
+type: push
+description: |
+  This push policy introduces a condition where runs are paused if the stack is locked, ensuring that no automated processes interfere during critical periods. 
+  - Proposed runs are considered for all branches under the same non-locked condition.
+  - Any push to a branch without changes is ignored.
+  
+  The policy enhances control over the deployment pipeline, allowing users to lock the stack as a means to pause automated runs, providing an additional layer of security and management for infrastructure changes.
+
+labels: 
+- lock
+- pause
+- push
+- control
