@@ -1,0 +1,14 @@
+name: Disallow AWS IAM Access Key Creation
+source: dont-allow-resource-type.rego
+type: plan
+description: |
+  This policy prohibits the creation of AWS IAM access keys with static credentials, as they pose security risks. 
+  By preventing the creation of such access keys, the policy enhances the security posture of the infrastructure and reduces the likelihood of unauthorized access to AWS resources. 
+  The dynamic message captures the resource address to provide appropriate context to affected individuals, emphasizing the importance of adhering to security best practices.
+
+labels:
+- security
+- aws
+- iam
+- access-key
+- static-credentials

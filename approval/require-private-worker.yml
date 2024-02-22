@@ -1,0 +1,10 @@
+name: Require Private Worker
+source: require-private-worker.rego
+type: approval
+description: |
+  This policy approves any runs where the stack uses a private worker and rejects any runs where the stack uses a public worker. 
+  It ensures that only private workers are used for running infrastructure changes.
+labels:
+  - approval
+  - worker
+  - private

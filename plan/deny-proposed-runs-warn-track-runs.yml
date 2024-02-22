@@ -1,0 +1,11 @@
+name: Deny Proposed Runs, Warn Track Runs
+source: deny-proposed-runs-warn-track-runs.rego
+type: plan
+description: |
+  This policy uses both deny and warn rules to provide comprehensive feedback during code review. 
+  It denies proposed runs for creating IAM users and warns for the same action in tracked runs. 
+  By leveraging the run type (PROPOSED or TRACKED), it ensures appropriate handling of violations based on the Git workflow.
+
+labels:
+- deny-warn-policy
+- plan

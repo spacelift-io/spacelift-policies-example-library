@@ -1,0 +1,10 @@
+name: Readers, Writers, Admins Teams
+source: readers-writers-admins-teams.rego
+type: login
+description: |
+  This policy defines different roles (admins, writers, and readers) based on team membership. 
+  Admins have the highest access level, followed by writers, and then readers.
+
+labels:
+- access-control
+- team-roles

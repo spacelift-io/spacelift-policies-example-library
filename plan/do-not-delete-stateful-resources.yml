@@ -1,0 +1,11 @@
+name: Prevent Deletion of Stateful Resources
+source: do-not-delete-stateful-resources.rego
+type: plan
+description: |
+  This policy prohibits the deletion of stateful resources to prevent accidental loss of data or disruption of critical services. 
+  By preventing the deletion of specified resource types during the plan phase, the policy helps maintain the integrity and availability of stateful resources in the infrastructure.
+
+labels:
+- stateful-resources
+- deletion-prevention
+- plan

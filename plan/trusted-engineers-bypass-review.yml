@@ -1,0 +1,15 @@
+name: Trusted Engineers Bypass Review
+source: trusted-engineers-bypass-review.rego
+type: plan
+description: |
+  This policy facilitates a streamlined workflow for trusted engineers, allowing their commits to be deployed automatically, under the assumption that the Stack is set to autodeploy and their changes have undergone code review. 
+  It specifies an allowlist of individuals whose contributions are considered safe for direct deployment, thereby reducing bottlenecks in the deployment process for routine or low-risk changes.
+
+  The policy aims to balance speed and security by enabling trusted engineers to operate with greater autonomy while ensuring that contributions from others are subject to human review, maintaining a high standard of scrutiny for the majority of changes.
+
+labels: 
+- trusted
+- engineers
+- autodeploy
+- review
+- plan

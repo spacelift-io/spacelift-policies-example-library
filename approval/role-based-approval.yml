@@ -1,0 +1,12 @@
+name: Role-based Approval
+source: role-based-approval.rego
+type: approval
+description: |
+  This approval policy requires explicit user approval for runs that are in the UNCONFIRMED state or are of type TASK. 
+  It defines approval conditions based on roles such as Director, DevOps, and Security. 
+  Runs can be approved by a single Director or by both DevOps and Security teams.
+  
+labels:
+- approval
+- role-based
+- security

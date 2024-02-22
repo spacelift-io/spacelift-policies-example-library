@@ -1,0 +1,11 @@
+name: Check Sanitized Value
+source: check-sanitized-value.rego
+type: plan
+description: |
+  This policy checks if any resource targets the forbidden endpoint "forbidden.endpoint/webhook" and denies the action if found. 
+  It ensures that sensitive properties are not exposed in the Terraform configuration.
+
+labels:
+- security
+- terraform-plan
+- sensitive-data

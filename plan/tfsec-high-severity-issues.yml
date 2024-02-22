@@ -1,0 +1,15 @@
+name: Tfsec High Severity Issues
+source: tfsec-high-severity-issues.rego
+type: plan
+description: |
+  This policy is designed to warn about the presence of high severity issues identified by tfsec, a security tool for Terraform code. 
+  If the number of high severity issues is below a certain threshold (in this case, less than 5), a warning message is generated to highlight the need for attention and remediation. 
+  This proactive approach to security ensures that significant vulnerabilities are addressed promptly, contributing to the maintenance of high security standards in infrastructure as code (IaC) projects.
+
+  Integrating tfsec with Spacelift policies allows teams to automate the security review process, ensuring that critical issues are flagged for resolution before deployment, thus embedding security within the CI/CD pipeline.
+
+labels: 
+- tfsec
+- security
+- high-severity
+- Terraform

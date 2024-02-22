@@ -1,0 +1,12 @@
+name: Task and Run Approvals
+source: task-and-run-approvals.rego
+type: approval
+description: |
+  This approval policy automatically approves runs that do not require explicit user approval. 
+  For runs that are in the UNCONFIRMED state or are of type TASK, explicit user approval is required. 
+  Additionally, certain task commands are auto-approved. 
+  Two approvals are required for all runs, and there should be no rejections for approval.
+  
+labels:
+- approval
+- decision-making

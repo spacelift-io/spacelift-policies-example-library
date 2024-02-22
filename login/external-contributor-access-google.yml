@@ -1,0 +1,11 @@
+name: External Contributor Access - Google
+source: external-contributor-access-google.rego
+type: login
+description: |
+  This policy allows external contributors with email addresses ending in "@example.com" to access the account. Certain users, such as "alice@example.com", are granted admin privileges, while others are granted regular access.
+
+labels:
+- access-control
+- external-contributors
+- google
+- login

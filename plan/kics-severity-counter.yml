@@ -1,0 +1,15 @@
+name: KICS Severity Counter
+source: kics-severity-counter.rego
+type: plan
+description: |
+  This policy integrates with the KICS (Keeping Infrastructure as Code Secure) tool to monitor and enforce security best practices by evaluating the severity of issues detected in the infrastructure code. 
+  It issues warnings for information, low, and medium severity issues, providing a detailed count for each category to help prioritize fixes.
+  However, it takes a stricter stance on high severity issues by denying any run that contains them, ensuring that critical vulnerabilities are addressed before proceeding with deployment.
+
+  The goal is to embed security within the CI/CD process, making sure that infrastructure deployments not only meet functional requirements but also adhere to the highest security standards.
+
+labels: 
+- KICS
+- security
+- severity
+- compliance

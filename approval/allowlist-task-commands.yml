@@ -1,0 +1,9 @@
+: Allowlist Task Commands
+source: allowlist-task-commands.rego
+type: approval
+description: |
+  This policy allows only specific task commands to be executed. It automatically approves runs that are not tasks,
+  and those with task commands that are on the allowlist. Additionally, runs require at least two approvals.
+labels:
+  - approval
+  - task-commands

@@ -1,0 +1,14 @@
+name: Warn On Change Sensitive Resources
+source: warn-on-change-sensitive-resources.rego
+type: plan
+description: |
+  This policy generates warnings for changes to sensitive resources that require human review. It is designed to elevate awareness and ensure careful consideration when performing actions like updates or deletions on critical infrastructure components. 
+  The policy targets a predefined list of sensitive resource types, such as IAM users, roles, policies, and security groups within AWS, flagging any proposed updates or deletions for additional scrutiny.
+
+  By enforcing manual review for changes to these sensitive resources, the policy enhances security and governance, helping to prevent inadvertent modifications that could impact system integrity or compliance posture.
+
+labels: 
+- sensitive
+- resources
+- security
+- review

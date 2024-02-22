@@ -1,0 +1,15 @@
+name: Infracost Monthly Cost Restriction
+source: infracost-monthly-cost-restriction.rego
+type: plan
+description: |
+  This policy utilizes Infracost data to enforce cost controls on infrastructure deployments by:
+  - Denying changes that increase monthly costs beyond a $100 threshold, ensuring that budget limits are respected.
+  - Issuing warnings for increases exceeding 5%, highlighting significant cost impacts and encouraging cost optimization discussions.
+
+  By integrating cost estimates directly into the CI/CD process, this policy helps maintain financial discipline, ensuring that infrastructure changes are both necessary and cost-effective.
+
+labels: 
+- infracost
+- cost-management
+- budget
+- financial-governance

@@ -1,0 +1,13 @@
+name: Enforce Tags On Resources
+source: enforce-tags-on-resources.rego
+type: plan
+description: |
+  This policy ensures that all Terraform-managed resources adhere to tagging conventions by requiring the presence of specific tags: "Name", "env", and "owner". 
+  It denies changes to resources that lack any of these required tags, emphasizing the importance of consistent tagging for resource identification, environment management, and ownership tracking. 
+  The policy aids in maintaining order, facilitating cost allocation, security, and governance across the infrastructure.
+
+labels: 
+- tagging
+- compliance
+- plan
+- terraform

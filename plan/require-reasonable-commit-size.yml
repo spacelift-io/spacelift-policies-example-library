@@ -1,0 +1,15 @@
+name: Require Reasonable Commit Size
+source: require-reasonable-commit-size.rego
+type: plan
+description: |
+  To enhance reviewability and manageability of changes, this policy enforces a limit on the commit size by automatically denying or warning against changes that affect more than 50 resources. 
+  The threshold is set to ensure changes remain within a reasonable scope, facilitating thorough reviews and minimizing the risk of overlooked issues. 
+
+  For PROPOSED runs, changes exceeding this limit will be denied, promoting smaller, more manageable updates. 
+  For all other run types, a warning will be issued, still allowing for deployment but with a mandatory human review to ensure careful consideration of extensive changes.
+
+labels: 
+- commit-size
+- manageability
+- review
+- plan
