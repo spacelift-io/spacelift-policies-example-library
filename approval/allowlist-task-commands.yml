@@ -1,4 +1,4 @@
-: Allowlist Task Commands
+name: Allowlist Task Commands
 source: allowlist-task-commands.rego
 type: approval
 description: |
