@@ -1,0 +1,12 @@
+name: Require Human Review For Update Deletion
+source: require-human-review-for-update-deletion.rego
+type: plan
+description: |
+  Adding resources may ultimately cost a lot of money but it's generally pretty safe from an operational perspective.
+  Let's use a `warn` rule to allow changes with only added resources to get automatically applied,
+  and require all others to get a human review.
+labels:
+  - plan
+  - best-practices
+  - security
+  - warning-policy
