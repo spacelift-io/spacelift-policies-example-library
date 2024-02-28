@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.if
+
 # By default, runs are not triggered when a forked repository opens a pull request against your repository.
 # This is because of a security concern: if let's say your infrastructure is open source, someone forks it,
 # implements some unwanted junk in there, then opens a pull request for the original repository,
@@ -9,7 +11,7 @@ package spacelift
 #
 # See https://docs.spacelift.io/concepts/policy/git-push-policy#allow-forks
 
-allow_fork {
+allow_fork if {
 	valid_owners := {"johnwayne", "microsoft"}
 	valid_owners[input.pull_request.head_owner]
 }
