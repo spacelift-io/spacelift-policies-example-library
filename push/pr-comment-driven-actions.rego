@@ -1,5 +1,7 @@
 package spacelift
 
+import future.keywords.if
+
 # This policy requires the following permissions on your VCS provider:
 # - Read access to `issues` repository permissions
 # - Subscribe to `issues:comments` event
@@ -14,7 +16,7 @@ package spacelift
 # Furthermore, Spacelift only processes event data for new comments,
 # and will not receive event data for edited or deleted comments.
 
-track {
+track if {
 	input.pull_request.action == "commented"
 	input.pull_request.comment == concat(" ", ["/spacelift", "deploy", input.stack.id])
 }
