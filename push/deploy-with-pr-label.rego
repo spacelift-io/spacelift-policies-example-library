@@ -1,16 +1,19 @@
 package spacelift
 
+import future.keywords.if
+import future.keywords.in
+
 # This policy responds to a particular PR label ("deploy") to automatically deploy changes
 
-is_pr {
+is_pr if {
 	not is_null(input.pull_request)
 }
 
-labeled {
-	input.pull_request.labels[_] = "deploy"
+labeled if {
+	"deploy" in input.pull_request.labels
 }
 
-track {
+track if {
 	is_pr
 	labeled
 }

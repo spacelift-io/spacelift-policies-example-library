@@ -1,23 +1,25 @@
 package spacelift
 
+import future.keywords.if
+
 # This policy triggers proposed runs only if a PR exists,
 # and tracked runs only from PR merges.
 # All non-PR events are ignored.
 
-is_pr {
+is_pr if {
 	not is_null(input.pull_request)
 }
 
-track {
+track if {
 	is_pr
 	input.push.branch == input.stack.branch
 }
 
-propose {
+propose if {
 	is_pr
 }
 
-ignore {
+ignore if {
 	not is_pr
 }
 
