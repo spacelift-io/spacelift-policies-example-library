@@ -11,6 +11,11 @@ rules:
       level: ignore
     todo-comment:
       level: ignore
+    rule-length:
+      level: ignore
+      ignore:
+        files:
+          - "*_test.rego"
   testing:
     test-outside-test-package:
       level: ignore
