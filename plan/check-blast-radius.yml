@@ -2,10 +2,10 @@ name: Check Blast Radius
 source: check-blast-radius.rego
 type: plan
 description: |
-  This policy calculates the blast radius of changes in the Terraform configuration. It assigns multipliers to different types of resources based on their impact, with deletes and updates being more "expensive" than new resources. 
+  This policy calculates the blast radius of changes in the Terraform configuration. It assigns multipliers to different types of resources based on their impact, with deletes and updates being more "expensive" than new resources.
   It fails Pull Requests with changes violating the blast radius policy and requires human action through warnings when changes hit the tracked branch.
 
 labels:
 - plan
-- blast-radius
-- best-practices
+- blast radius
+- best practices

@@ -2,11 +2,11 @@ name: Checkov Failed Checks
 source: checkov-failed-checks.rego
 type: plan
 description: |
-  This policy warns when the number of failed Checkov checks is less than 10, but does not fail the run. 
+  This policy warns when the number of failed Checkov checks is less than 10, but does not fail the run.
   It provides visibility into potential issues without blocking the deployment process.
 
 labels:
-- code-quality
+- code quality
 - checkov
-- warning-policy
+- warning policy
 - plan

@@ -2,12 +2,12 @@ name: Enforce Terraform Version List
 source: enforce-terraform-version-list.rego
 type: plan
 description: |
-  To maintain compatibility and security, this policy delineates specific allowed and not allowed Terraform versions. Versions such as "1.4.1", "1.4.2", and "1.4.3" are explicitly prohibited, whereas "1.4.4", "1.4.5", and "1.5.0" are endorsed. 
+  To maintain compatibility and security, this policy delineates specific allowed and not allowed Terraform versions. Versions such as "1.4.1", "1.4.2", and "1.4.3" are explicitly prohibited, whereas "1.4.4", "1.4.5", and "1.5.0" are endorsed.
   The policy denies runs using disallowed versions and suggests acceptable alternatives, promoting adherence to tested and approved Terraform versions for infrastructure management.
 
-labels: 
+labels:
 - terraform
-- version-control
+- version control
 - security
 - compliance
 - plan

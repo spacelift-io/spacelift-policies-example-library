@@ -2,13 +2,13 @@ name: Enforce Module Use
 source: enforce-module-use-policy.rego
 type: plan
 description: |
-   This policy enforces the use of approved Terraform modules for resource creation, enhancing consistency, maintainability, and security across infrastructure deployments. 
-   By mandating the use of approved modules, it ensures adherence to organizational standards, facilitates reuse of proven infrastructure patterns, and mitigates risks associated with unauthorized resource creation. 
+   This policy enforces the use of approved Terraform modules for resource creation, enhancing consistency, maintainability, and security across infrastructure deployments.
+   By mandating the use of approved modules, it ensures adherence to organizational standards, facilitates reuse of proven infrastructure patterns, and mitigates risks associated with unauthorized resource creation.
    The policy denies the direct creation of resources and alerts when resources are created using unapproved modules.
-   
-labels: 
-- password-security
+
+labels:
+- password security
 - terraform
 - compliance
 - plan
-- best-practices
+- best practices
