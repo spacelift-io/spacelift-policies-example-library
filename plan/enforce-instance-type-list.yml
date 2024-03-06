@@ -2,12 +2,12 @@ name: Enforce Instance Type
 source: enforce-instance-type-list.rego
 type: plan
 description: |
-  This policy restricts the use of certain AWS instance types within the deployment to align with organizational standards, cost optimization goals, and security requirements. 
-  It ensures that only approved instance types are utilized, thereby mitigating risks associated with unauthorized or suboptimal resource provisioning. 
+  This policy restricts the use of certain AWS instance types within the deployment to align with organizational standards, cost optimization goals, and security requirements.
+  It ensures that only approved instance types are utilized, thereby mitigating risks associated with unauthorized or suboptimal resource provisioning.
   By enforcing instance type restrictions, the policy promotes consistency, efficiency, and compliance across infrastructure deployments.
 
-labels: 
+labels:
 - aws
-- instance-type
-- cost
+- instance type
+- cost management
 - plan

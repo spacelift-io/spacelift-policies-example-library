@@ -8,8 +8,8 @@ description: |
 
   By integrating cost estimates directly into the CI/CD process, this policy helps maintain financial discipline, ensuring that infrastructure changes are both necessary and cost-effective.
 
-labels: 
+labels:
 - infracost
-- cost-management
+- cost management
 - budget
-- financial-governance
+- financial governance
