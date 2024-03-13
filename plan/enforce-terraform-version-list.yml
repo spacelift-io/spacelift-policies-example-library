@@ -7,7 +7,7 @@ description: |
 
 labels:
 - terraform
-- version control
+- version-control
 - security
 - compliance
 - plan

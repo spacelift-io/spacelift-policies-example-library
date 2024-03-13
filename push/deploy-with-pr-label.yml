@@ -8,8 +8,8 @@ description: |
 
   The policy optimizes the deployment process by aligning runs with development workflows, specifically leveraging PR labels to control deployment timing and execution, enhancing both automation and control within CI/CD pipelines.
 
-labels: 
-- pull request
+labels:
+- pull-request
 - label
 - deploy
 - push

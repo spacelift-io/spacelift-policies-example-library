@@ -9,7 +9,7 @@ description: |
   This requirement for manual approval helps in ensuring that the proposed changes are indeed appropriate and in alignment with the organization's infrastructure management policies and practices.
 
 labels:
-- drift detection
-- manual approval
-- human review
+- drift-detection
+- manual-approval
+- human-review
 - plan

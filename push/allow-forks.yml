@@ -2,13 +2,13 @@ name: Allow Forks
 source: allow-forks.rego
 type: push
 description: |
-  This policy adjusts the default behavior to permit runs triggered by pull requests from forked repositories, but only for a whitelist of trusted users or organizations. 
-  The intention is to balance openness and collaboration with security, especially in open-source infrastructure projects. 
+  This policy adjusts the default behavior to permit runs triggered by pull requests from forked repositories, but only for a whitelist of trusted users or organizations.
+  The intention is to balance openness and collaboration with security, especially in open-source infrastructure projects.
 
   Trusted entities are specified within the policy, ensuring that only contributions from these users or organizations can trigger a propose run, fostering a controlled yet collaborative development environment.
 
-labels: 
+labels:
 - forks
 - security
 - collaboration
-- open source
+- open-source

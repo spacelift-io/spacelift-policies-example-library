@@ -6,6 +6,6 @@ description: |
   By preventing the deletion of specified resource types during the plan phase, the policy helps maintain the integrity and availability of stateful resources in the infrastructure.
 
 labels:
-- stateful resources
-- deletion prevention
+- stateful-resources
+- deletion-prevention
 - plan

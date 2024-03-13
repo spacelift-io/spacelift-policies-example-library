@@ -2,13 +2,13 @@ name: Tag Driven Tf Module Release Flow
 source: tag-driven-tf-module-release-flow.rego
 type: push
 description: |
-  This policy facilitates a tag-driven release flow for Terraform modules. 
-  When a new tag is pushed to a module repository, the policy triggers a tracked run, ensuring that the module version is updated accordingly. 
-  It specifically accounts for tags prefixed with "v", stripping this prefix to comply with the Terraform Module Registry's versioning format, which requires numeric "X.X.X" versions. 
+  This policy facilitates a tag-driven release flow for Terraform modules.
+  When a new tag is pushed to a module repository, the policy triggers a tracked run, ensuring that the module version is updated accordingly.
+  It specifically accounts for tags prefixed with "v", stripping this prefix to comply with the Terraform Module Registry's versioning format, which requires numeric "X.X.X" versions.
   This approach streamlines the release process, allowing for automatic updates and version tracking within the Spacelift environment.
 
-labels: 
+labels:
 - tag
 - release
-- Terraform
+- terraform
 - module

@@ -5,6 +5,6 @@ description: |
   This policy is used send a notification to Slack when drift is detected in the infrastructure.
 labels:
   - notification
-  - drift detection
+  - drift-detection
   - changes
   - slack

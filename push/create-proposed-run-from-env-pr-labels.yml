@@ -2,15 +2,15 @@ name: Create Proposed Run From Env Pr Labels
 source: create-proposed-run-from-env-pr-labels.rego
 type: push
 description: |
-  This policy automates the creation of proposed runs based on the detection of pull request (PR) labels that are prefixed with "env:". 
-  It's designed to facilitate environment-specific workflows, where the presence of an environment label on a PR triggers a proposed run for further review or action. 
+  This policy automates the creation of proposed runs based on the detection of pull request (PR) labels that are prefixed with "env:".
+  It's designed to facilitate environment-specific workflows, where the presence of an environment label on a PR triggers a proposed run for further review or action.
   This capability ensures that changes intended for specific environments are automatically flagged for attention, aligning deployment strategies with environmental contexts and requirements.
 
   The policy bridges development workflows with deployment practices, enabling a more targeted approach to managing changes across different environments.
 
-labels: 
+labels:
 - environment
-- pull request
-- proposed run
+- pull-request
+- proposed-run
 - automation
 - push

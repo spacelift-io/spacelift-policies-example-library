@@ -6,7 +6,7 @@ description: |
   It provides visibility into potential issues without blocking the deployment process.
 
 labels:
-- code quality
+- code-quality
 - checkov
-- warning policy
+- warning-policy
 - plan

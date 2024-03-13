@@ -8,6 +8,6 @@ description: |
 
 labels:
 - aws
-- instance type
-- cost management
+- instance-type
+- cost-management
 - plan
