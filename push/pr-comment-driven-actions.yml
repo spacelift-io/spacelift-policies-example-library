@@ -4,11 +4,11 @@ type: push
 description: |
   This policy leverages the power of pull request comments to drive actions, establishing a direct line between commentary and deployment. Key requirements include:
   - Read access to `issues` and subscription to `issues:comments` events on the version control system (VCS) provider.
-  It operates under the premise that only comments starting with `/spacelift` are considered, minimizing the risk of unintended deployments. 
+  It operates under the premise that only comments starting with `/spacelift` are considered, minimizing the risk of unintended deployments.
   This selective approach ensures that Spacelift actions, such as deployments, are explicitly triggered by designated commands within PR comments, enhancing both security and specificity in CI/CD workflows.
 
-labels: 
-- PR
+labels:
+- pull-request
 - comments
 - actions
 - push

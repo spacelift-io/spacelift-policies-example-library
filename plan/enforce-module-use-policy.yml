@@ -7,8 +7,8 @@ description: |
    The policy denies the direct creation of resources and alerts when resources are created using unapproved modules.
 
 labels:
-- password security
+- password-security
 - terraform
 - compliance
 - plan
-- best practices
+- best-practices

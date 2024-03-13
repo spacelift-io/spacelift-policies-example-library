@@ -9,7 +9,7 @@ description: |
 
 labels:
 - ansible
-- unreachable hosts
-- human review
+- unreachable-hosts
+- human-review
 - troubleshooting
 - plan

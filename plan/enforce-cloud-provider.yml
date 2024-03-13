@@ -5,6 +5,6 @@ description: |
   This policy ensures adherence to the organization's cloud provider strategy by enforcing the exclusive use of a specific cloud provider for deployments.
 
 labels:
-- cloud provider
+- cloud-provider
 - aws
 - plan

@@ -7,7 +7,7 @@ description: |
   The enforcement applies to both the creation and updating of resources, promoting best practices in cloud security and infrastructure management.
 
 labels:
-- cloud sql
+- cloud-sql
 - network-security
 - google
 - terraform

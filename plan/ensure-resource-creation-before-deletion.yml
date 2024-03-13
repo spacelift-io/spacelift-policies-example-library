@@ -5,5 +5,5 @@ description: |
   This policy ensures that the listed resource types will be created before being deleted to avoid an incident.
 labels:
   - plan
-  - best practices
+  - best-practices
   - incident-prevention
