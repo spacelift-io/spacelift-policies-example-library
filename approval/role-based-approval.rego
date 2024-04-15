@@ -18,7 +18,7 @@ approve {
 
 approvals := input.reviews.current.approvals
 
-# Let's define what it means to be approved by a director, DevOps amd Security.
+# Let's define what it means to be approved by a director, DevOps and Security.
 director_approval {
 	"Director" in approvals[_].session.teams
 }
