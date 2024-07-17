@@ -1,0 +1,14 @@
+name: Trivy High Severity Issues
+source: trivy-high-severity-issues.rego
+type: plan
+description: |
+  This policy is designed to warn about the presence of high severity issues identified by Trivy, a security tool for scanning vulnerabilities and misconfigurations in IaC projects, including Terraform code. The policy specifically looks for high severity misconfigurations within the provided scan results.
+  When high severity issues are detected, the policy generates a warning message to highlight these vulnerabilities. This approach ensures that significant security issues are addressed promptly, contributing to the maintenance of high security standards in IaC projects.
+
+  Integrating Trivy with Spacelift policies allows teams to automate the security review process, ensuring that critical issues are flagged for resolution before deployment.
+
+labels: 
+- trivy
+- security
+- high-severity
+- Terraform
