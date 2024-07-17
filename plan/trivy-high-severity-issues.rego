@@ -2,11 +2,11 @@ package spacelift
 
 # This policy returns warnings for every high severity issue trivy finds
 
-warn [sprintf("Warning due to high severity misconfiguration: %s", [Title])] {
-    misconf := input.third_party_metadata.custom.trivy.Results[_].Misconfigurations[_]
-    misconf.Severity == "HIGH"
-    misconf.Status == "FAIL"
-    Title := misconf.Title
+warn[sprintf("Warning due to high severity misconfiguration: %s", [title])] {
+	misconf := input.third_party_metadata.custom.trivy.Results[_].Misconfigurations[_]
+	misconf.Severity == "HIGH"
+	misconf.Status == "FAIL"
+	title := misconf.Title
 }
 
 # Learn more about sampling policy evaluations here:
