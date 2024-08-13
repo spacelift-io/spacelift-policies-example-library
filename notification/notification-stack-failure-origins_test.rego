@@ -1,4 +1,4 @@
-package spacelift_test
+package spacelift
 
 import future.keywords.if
 import future.keywords.in
