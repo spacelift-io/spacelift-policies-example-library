@@ -2,7 +2,7 @@ name: Notification to Author of Stack Failure
 source: notification-stack-failure-origins.rego
 type: notification
 description: |
-  This policy is used to write a comment on the GitHub Pull Request which triggered a Spacelift Stack failure and/or sends a Slack message to the user as well.
+  This policy is used to write a comment on the GitHub Pull Request which triggered a Spacelift Stack failure and/or sends a Slack message to the user.
 labels:
   - notification
   - failure
