@@ -24,4 +24,4 @@ capabilities:
   from:
     # Feel free to submit a PR to have "spacelift" added as an engine!
     engine: opa
-    version: v0.51.0
+    version: v0.64.0

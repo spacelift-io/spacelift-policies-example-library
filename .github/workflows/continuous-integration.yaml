@@ -30,7 +30,7 @@ jobs:
       - name: Install OPA
         uses: open-policy-agent/setup-opa@v2
         with:
-          version: 0.51.0
+          version: 0.64.0
 
       - name: Check syntax
         run: |
@@ -51,7 +51,7 @@ jobs:
       - name: Install OPA
         uses: open-policy-agent/setup-opa@v2
         with:
-          version: 0.51.0
+          version: 0.64.0
 
       - name: Run unit tests
         run: |
