@@ -20,7 +20,7 @@ github_to_slack := {
 github_author := input.run_updated.run.commit.author
 
 # Function to get Slack ID corresponding to GH username from the map if exists, else, mention @here for Slack notification
-slack_user_id(github_username) := slack_id if {
+retrieve_slack_user_id(github_username) := slack_id if {
 	slack_id := github_to_slack[github_username]
 } else := "here"
 
@@ -52,7 +52,7 @@ slack contains {
 	),
 } if {
 	tracked_failed
-	slack_user_id := slack_user_id(github_author)
+	slack_user_id := retrieve_slack_user_id(github_author)
 }
 
 # Write a comment on the PR that introduced the change where this stack failed
