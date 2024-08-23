@@ -63,6 +63,8 @@ jobs:
   test-results-and-coverage:
     name: Test Results and Coverage
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
 
     steps:
       - name: Check out
