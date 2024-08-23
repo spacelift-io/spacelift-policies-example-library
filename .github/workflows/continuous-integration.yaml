@@ -59,3 +59,16 @@ jobs:
           for test in $tests; do
               opa test -v $test ${test/_test.rego/.rego}
           done
+
+  test-results-and-coverage:
+    name: Test Results and Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Run OPA Rego Tests and Coverage Report
+        uses: masterpointio/github-action-opa-rego-test@v1.0.0
+        with:
+          report_untested_files: true
