@@ -1,0 +1,13 @@
+name: Notification as a comment on your pull request which summarises your logs
+source: pull-request-comment-summary.rego
+type: notification
+description: |
+  This policy will add a comment to a pull request where it will list all the resources that were added, changed, deleted, moved, imported or forgotten.
+labels:
+  - notification
+  - slack
+  - github
+  - pull-request
+  - PR
+  - comment
+  - run
