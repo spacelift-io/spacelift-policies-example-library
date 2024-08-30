@@ -2,7 +2,9 @@
 package spacelift_test
 
 import data.spacelift
-import future.keywords
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
 # Test with 1 resource having "create-before-destroy" action with moved false
 test_create_before_destroy if {

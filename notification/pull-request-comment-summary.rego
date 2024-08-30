@@ -1,7 +1,9 @@
 # regal ignore:use-rego-v1
 package spacelift
 
-import future.keywords
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
 
 # regal ignore:line-length
 header := sprintf("### Resource changes ([link](%s))\n\n![add](https://img.shields.io/badge/add-%d-brightgreen) ![change](https://img.shields.io/badge/change-%d-yellow) ![destroy](https://img.shields.io/badge/destroy-%d-red) ![import](https://img.shields.io/badge/import-%d-blue) ![move](https://img.shields.io/badge/move-%d-purple) ![forget](https://img.shields.io/badge/forget-%d-b07878) \n\n| Action | Resource | Changes |\n| --- | --- | --- |", [input.run_updated.urls.run, count(added), count(changed), count(deleted), count(imported), count(moved), count(forgotten)])
