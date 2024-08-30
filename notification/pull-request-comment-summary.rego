@@ -23,9 +23,27 @@ added contains row if {
 
 	# regal ignore:line-length
 	row := sprintf("| Added | `%s` | <details><summary>Value</summary>`%s`</details> |", [x.entity.address, x.entity.data.values])
+	x.action == "added"
+	x.entity.entity_type == "resource"
+	not x.moved
+}
 
-	# regal ignore:deprecated-builtin
-	any([x.action == "added", x.action == "destroy-Before-create-replaced", x.action == "create-Before-destroy-replaced"])
+added contains row if {
+	some x in input.run_updated.run.changes
+
+	# regal ignore:line-length
+	row := sprintf("| Added | `%s` | <details><summary>Value</summary>`%s`</details> |", [x.entity.address, x.entity.data.values])
+	x.action == "destroy-Before-create-replaced"
+	x.entity.entity_type == "resource"
+	not x.moved
+}
+
+added contains row if {
+	some x in input.run_updated.run.changes
+
+	# regal ignore:line-length
+	row := sprintf("| Added | `%s` | <details><summary>Value</summary>`%s`</details> |", [x.entity.address, x.entity.data.values])
+	x.action == "create-Before-destroy-replaced"
 	x.entity.entity_type == "resource"
 	not x.moved
 }
@@ -43,9 +61,23 @@ changed contains row if {
 deleted contains row if {
 	some x in input.run_updated.run.changes
 	row := sprintf("| Deleted | `%s` | :x: |", [x.entity.address])
+	x.action == "deleted"
+	x.entity.entity_type == "resource"
+	not x.moved
+}
 
-	# regal ignore:line-length, deprecated-builtin
-	any([x.action == "deleted", x.action == "destroy-Before-create-replaced", x.action == "create-Before-destroy-replaced"])
+deleted contains row if {
+	some x in input.run_updated.run.changes
+	row := sprintf("| Deleted | `%s` | :x: |", [x.entity.address])
+	x.action == "destroy-Before-create-replaced"
+	x.entity.entity_type == "resource"
+	not x.moved
+}
+
+deleted contains row if {
+	some x in input.run_updated.run.changes
+	row := sprintf("| Deleted | `%s` | :x: |", [x.entity.address])
+	x.action == "create-Before-destroy-replaced"
 	x.entity.entity_type == "resource"
 	not x.moved
 }
