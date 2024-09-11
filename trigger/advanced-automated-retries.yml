@@ -1,0 +1,13 @@
+name: Advanced Automated Retries
+source: advanced-automated-retries.rego
+type: trigger
+description: |
+  Sometimes Terraform or Pulumi deployments fail for a reason that has nothing to do with the code
+  - think eventual consistency between various cloud subsystems, transient API errors etc.
+  This trigger policy will restart the failed run up to a maximum number of times. This policy can also be configured
+  on a per stack basis by setting `spacelift_retry:<number>` on the stacks labels.
+labels:
+  - trigger
+  - retries
+  - automated
+  - failed
