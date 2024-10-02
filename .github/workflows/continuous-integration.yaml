@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Regal
-        uses: StyraInc/setup-regal@v0.2.0
+        uses: StyraInc/setup-regal@v1
         with:
           version: v0.11.0
       - run: regal lint --format=github .
@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Check out
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install OPA
         uses: open-policy-agent/setup-opa@v2
@@ -35,10 +35,7 @@ jobs:
       - name: Check syntax
         run: |
           # KLUDGE: plan/check-sanitized-value.rego needs to be ignored because it uses the custom sanitized() function
-          policies=$(find . -type f -regex '.*\.rego$' | grep -v _test.rego | grep -v plan/check-sanitized-value.rego)
-          for policy in $policies; do
-              opa check --strict $policy
-          done
+          find . -name \*.rego ! -regex '.*_test\.rego$' ! -path './plan/check-sanitized-value.rego' -print0 | xargs -0 -n1 opa check --strict
 
   unit-tests:
     name: Unit Tests
@@ -46,7 +43,7 @@ jobs:
 
     steps:
       - name: Check out
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install OPA
         uses: open-policy-agent/setup-opa@v2
@@ -55,7 +52,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          tests=$(find . -type f -regex '.*_test\.rego$')
+          tests=$(find . -type f -name '*_test\.rego')
           for test in $tests; do
               opa test -v $test ${test/_test.rego/.rego}
           done
