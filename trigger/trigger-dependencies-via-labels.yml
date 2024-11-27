@@ -1,11 +1,11 @@
 name: Trigger Dependencies Via Labels With State
-source: trigger-dependencies-via-labels-with-state.rego
+source: trigger-dependencies-via-labels.rego
 type: trigger
 description: |
   This policy automates triggering dependencies based on labels and state information. It allows for sophisticated
   dependency management within Spacelift, ensuring that infrastructure changes are propagated correctly across
   dependent stacks.
-labels: 
+labels:
 - trigger
 - dependencies
 - labels
