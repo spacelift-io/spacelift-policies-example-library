@@ -35,7 +35,7 @@ jobs:
       - name: Check syntax
         run: |
           # KLUDGE: plan/check-sanitized-value.rego needs to be ignored because it uses the custom sanitized() function
-          find . -name \*.rego ! -regex '.*_test\.rego$' ! -path './plan/check-sanitized-value.rego' -print0 | xargs -0 -n1 opa check --strict
+          find . -name \*.rego ! -regex '.*_test\.rego$' ! -path './examples/plan/check-sanitized-value.rego' -print0 | xargs -0 -n1 opa check --strict
 
   unit-tests:
     name: Unit Tests
