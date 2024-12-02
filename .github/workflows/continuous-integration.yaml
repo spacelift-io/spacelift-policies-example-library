@@ -37,8 +37,8 @@ jobs:
           # KLUDGE: plan/check-sanitized-value.rego needs to be ignored because it uses the custom sanitized() function
           find . -name \*.rego ! -regex '.*_test\.rego$' ! -path './examples/plan/check-sanitized-value.rego' -print0 | xargs -0 -n1 opa check --strict
 
-  unit-tests:
-    name: Unit Tests
+  opa-test:
+    name: OPA Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -56,3 +56,15 @@ jobs:
           for test in $tests; do
               opa test -v $test ${test/_test.rego/.rego}
           done
+
+  go-test:
+    name: Go Tests
+    runs-on: ubuntu-latest
+    container: golang:1.23.3
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Run unit tests
+        run: go test -v ./...
