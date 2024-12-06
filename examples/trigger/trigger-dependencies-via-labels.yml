@@ -1,4 +1,4 @@
-name: Trigger Dependencies Via Labels With State
+name: Trigger Dependencies Via Labels
 source: trigger-dependencies-via-labels.rego
 type: trigger
 description: |
