@@ -16,7 +16,19 @@ func TestTemplates(t *testing.T) {
 	require.NotPanics(t, func() {
 		templates := policylib.Templates()
 		require.Greater(t, len(templates), 1, "should have templates")
+		assertUniqueNames(t, templates, "template names must be unique")
 	}, "embedded templates should not panic")
+}
+
+func assertUniqueNames(t *testing.T, templates []policylib.Template, msg string) int {
+	set := map[string]bool{}
+	for _, template := range templates {
+		if set[template.Name] {
+			assert.Failf(t, "duplicate template name: "+template.Name, msg)
+		}
+		set[template.Name] = true
+	}
+	return len(set)
 }
 
 func TestTemplates_Parsing(t *testing.T) {
