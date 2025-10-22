@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # Note:  This policy requires the configuration of your terraform state to be provided.  In this policy,
 # we reference this via `input.third_party_metadata.custom.configuration` (line 56 below)
@@ -21,7 +22,7 @@ controlled_resource_types := {
 }
 
 # Deny ability to create the resource directly (aka not in a module we identify)
-deny[reason] {
+deny contains reason if {
 	resource := input.terraform.resource_changes[_]
 	actions := {"create", "update"}
 	actions[resource.change.actions[_]]
@@ -34,7 +35,7 @@ deny[reason] {
 }
 
 # Deny ability to create the resource in an unapproved module
-deny[failed_reasons] {
+deny contains failed_reasons if {
 	# Did any of the resources fail to pass?
 	count(invalid_resources[_]) > 0
 
@@ -49,7 +50,7 @@ deny[failed_reasons] {
 
 # Walk the "configuration" tree and find all the resources which appear in our
 # "controlled_resource_types"
-controlled_resources[resource] {
+controlled_resources contains resource if {
 	# Recursively walk the module hierarchy
 	[path, module_ref] := walk(input.third_party_metadata.custom.configuration)
 
@@ -75,7 +76,7 @@ controlled_resources[resource] {
 
 # When the controlled resources are collected, iterate through them and
 # see if they comply
-invalid_resources[resource_instance] {
+invalid_resources contains resource_instance if {
 	resource_instance := controlled_resources[_]
 	not resource_instance.resource_module_name in controlled_resource_types[resource_instance.resource_type]
 }

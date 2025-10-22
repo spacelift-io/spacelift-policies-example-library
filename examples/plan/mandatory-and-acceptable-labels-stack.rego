@@ -1,8 +1,7 @@
 package spacelift
 
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # METADATA
 # description: Making sure mandatory labels are present and only allowing certain labels

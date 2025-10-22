@@ -1,7 +1,7 @@
 package spacelift
 
-import future.keywords.if
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This policy allow you to tag a repo with a "access:<level>:<team>" label to
 #  grant access to Stacks via labels.
@@ -17,10 +17,10 @@ trim_whitespace(s) := concat("-", parts) if {
 }
 
 # Convert all Teams to the ID format
-teams[trim_whitespace(input.session.teams[_])]
+teams contains trim_whitespace(input.session.teams[_])
 
 # Find access pattern matching labels and return just "access:team" for each
-labels[trim_prefix(label, "access:")] {
+labels contains trim_prefix(label, "access:") if {
 	some label in input.stack.labels
 	not label == ""
 	regex.match(`^access:(read|write|deny):[^:]+$`, label)

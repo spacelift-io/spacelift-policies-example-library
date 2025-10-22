@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.if
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This policy sets the head commit but does not trigger a tracked run.
 # This is helpful when the tracked run gets triggered from elsewhere.

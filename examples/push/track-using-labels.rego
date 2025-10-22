@@ -1,38 +1,41 @@
 package spacelift
 
-track {
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
+track if {
 	input.push.branch == input.stack.branch
 	affected
 }
 
-propose {
+propose if {
 	input.push.branch != ""
 }
 
-ignore {
+ignore if {
 	not affected
 }
 
 # Extract and use tracked directories and extensions from labels
-tracked_directories[tracked_directory] {
+tracked_directories contains tracked_directory if {
 	label := input.stack.labels[_]
 	startswith(label, "trackeddirectories:")
 	tracked_directory := split(label, ":")[1]
 }
 
-tracked_extensions[tracked_extension] {
+tracked_extensions contains tracked_extension if {
 	label := input.stack.labels[_]
 	startswith(label, "trackedextensions:")
 	tracked_extension := split(label, ":")[1]
 }
 
-affected {
+affected if {
 	some i, j
 	path := input.push.affected_files[i]
 	startswith(path, tracked_directories[j])
 }
 
-affected {
+affected if {
 	some i, j
 	path := input.push.affected_files[i]
 	endswith(path, tracked_extensions[j])

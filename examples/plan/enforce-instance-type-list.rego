@@ -1,5 +1,8 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # Smart Sanitization should be enabled on the stack so the policy can correctly read
 # the instance type.
 
@@ -10,7 +13,7 @@ deny_list := ["t2.2xlarge", "t2.xlarge"]
 allow_list := ["t2.nano", "t2.micro", "t2.small"]
 
 # Deny if the instance type is in the deny list
-deny[sprintf(message, [resource.address, instance])] {
+deny contains sprintf(message, [resource.address, instance]) if {
 	message := "Instance type %s is not allowed (%s)"
 	resource := input.terraform.resource_changes[_]
 	resource.type == "aws_instance"
@@ -19,7 +22,7 @@ deny[sprintf(message, [resource.address, instance])] {
 }
 
 # Warn if the instance type is not in the allow or deny lists
-warn[sprintf(message, [resource.address, instance])] {
+warn contains sprintf(message, [resource.address, instance]) if {
 	message := "Instance type %s is not recommended (%s)"
 	resource := input.terraform.resource_changes[_]
 	resource.type == "aws_instance"
@@ -29,14 +32,14 @@ warn[sprintf(message, [resource.address, instance])] {
 }
 
 # Helper function to check if instance type is in the allow list
-is_in_allow_list(instance) {
+is_in_allow_list(instance) if {
 	some allowed_instance
 	allowed_instance = allow_list[_]
 	allowed_instance == instance
 }
 
 # Helper function to check if instance type is in the deny list
-is_in_deny_list(instance) {
+is_in_deny_list(instance) if {
 	some denied_instance
 	denied_instance = deny_list[_]
 	denied_instance == instance

@@ -1,7 +1,7 @@
 package spacelift
 
-import future.keywords.if
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This example Git push policy will create proposed runs when it detects
 # a pull request label that starts with env:

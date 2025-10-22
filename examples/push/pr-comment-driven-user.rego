@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This policy requires the following permissions on your VCS provider:
 # - Read access to `issues` repository permissions
@@ -19,12 +20,12 @@ import future.keywords.in
 development_team := {"user1", "user2"}
 
 # This rule returns true if the user is in the development team
-is_development_team_member(user) {
+is_development_team_member(user) if {
 	user in development_team
 }
 
 # This rule creates a tracked run from a comment when it is a valid team member
-track {
+track if {
 	input.pull_request.action == "commented"
 	input.pull_request.comment == concat(" ", ["/spacelift", "deploy", input.stack.id])
 	is_development_team_member(input.pull_request.action_initiator)

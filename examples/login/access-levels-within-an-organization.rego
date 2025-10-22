@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This login policy gives everyone in the organization access to Spacelift
 # and makes all members of the "DevOps" team admins.
@@ -8,15 +9,15 @@ import future.keywords.in
 # You can read more about login policies here:
 # https://docs.spacelift.io/concepts/policy/login-policy
 
-admin {
+admin if {
 	"DevOps" in input.session.teams
 }
 
-allow {
+allow if {
 	input.session.member
 }
 
-deny {
+deny if {
 	not allow
 }
 

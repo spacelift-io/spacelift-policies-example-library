@@ -2,8 +2,8 @@
 
 package spacelift
 
-import future.keywords.contains
-import future.keywords.if
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 run_url := sprintf(
 	"https://%s.app.spacelift.io/stack/%s/run/%s",

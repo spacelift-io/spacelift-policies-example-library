@@ -1,7 +1,10 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # Deny changes that expose Cloud SQL instance to 0.0.0.0/0
-deny[msg] {
+deny contains msg if {
 	change := input.terraform.resource_changes[_]
 	change.type == "google_sql_database_instance"
 	valid_action(change.change.actions)
@@ -14,13 +17,13 @@ deny[msg] {
 }
 
 # Helper rule to check for valid actions
-valid_action(actions) {
+valid_action(actions) if {
 	action := actions[_]
 	action == "update"
 }
 
 # Helper rule to check for create action
-valid_action(actions) {
+valid_action(actions) if {
 	action := actions[_]
 	action == "create"
 }

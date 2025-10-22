@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # Note that the message here is dynamic and captures resource address to provide
 # appropriate context to anyone affected by this policy. For the sake of your
@@ -9,7 +10,7 @@ import future.keywords.in
 # You can read more about plan policies here:
 # https://docs.spacelift.io/concepts/policy/terraform-plan-policy
 
-deny[sprintf(message, [resource.address])] {
+deny contains sprintf(message, [resource.address]) if {
 	message := "Static AWS credentials are evil (%s)"
 
 	resource := input.terraform.resource_changes[_]

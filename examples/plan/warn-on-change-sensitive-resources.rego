@@ -1,6 +1,9 @@
 package spacelift
 
-warn[sprintf(message, [resource.address, action])] {
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
+warn contains sprintf(message, [resource.address, action]) if {
 	message := "resource: %s action %s requires human review"
 
 	review := {"delete", "update"} # Review actions include both "update" and "delete"

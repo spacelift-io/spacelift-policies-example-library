@@ -1,21 +1,24 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # Massive changes make reviewers miserable. Let's automatically fail all changes that affect more than 50 resources.
 # Let's also allow them to be deployed with mandatory human review nevertheless.
 
 proposed := input.spacelift.run.type == "PROPOSED"
 
-deny[msg] {
+deny contains msg if {
 	proposed
 	msg := too_many_changes[_]
 }
 
-warn[msg] {
+warn contains msg if {
 	not proposed
 	msg := too_many_changes[_]
 }
 
-too_many_changes[msg] {
+too_many_changes contains msg if {
 	threshold := 50
 
 	res := input.terraform.resource_changes

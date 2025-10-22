@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This policy approves any runs when someone from Security team approves the changes to the resources in the list,
 # and rejects any runs when someone from other teams tries to approve the changes.
@@ -8,7 +9,7 @@ import future.keywords.in
 # This policy can be combined with automatic policy attachment (https://docs.spacelift.io/concepts/policy#automatically)
 # to automatically enforce it across stacks.
 
-approve {
+approve if {
 	input.run.state != "UNCONFIRMED"
 }
 
@@ -22,7 +23,7 @@ approval_list := [
 	"aws_iam_user_policy",
 ]
 
-requires_approval {
+requires_approval if {
 	# Loop over each resource change in the plan
 	resource := input.run.changes[_]
 
@@ -32,7 +33,7 @@ requires_approval {
 	resource.entity.type == approval_list[_]
 }
 
-requires_approval {
+requires_approval if {
 	# Loop over each resource change in the plan
 	resource := input.run.changes[_]
 
@@ -42,7 +43,7 @@ requires_approval {
 	resource.entity.type == approval_list[_]
 }
 
-requires_approval {
+requires_approval if {
 	# Loop over each resource change in the plan
 	resource := input.run.changes[_]
 
@@ -55,18 +56,18 @@ requires_approval {
 approvals := input.reviews.current.approvals
 
 # Let's define what it means to be approved by Security team.
-security_approval {
+security_approval if {
 	"Security" in approvals[_].session.teams
 }
 
 # Approve when Security team approve and Require at least 1 approval:
-approve {
+approve if {
 	security_approval
 	count(input.reviews.current.approvals) > 0
 }
 
 # Require at least 1 rejection
-reject {
+reject if {
 	count(input.reviews.current.rejections) > 0
 }
 

@@ -1,17 +1,20 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # First, let's define all conditions that require explicit
 # user approval.
-requires_approval {
+requires_approval if {
 	input.run.state == "UNCONFIRMED"
 }
 
-requires_approval {
+requires_approval if {
 	input.run.type == "TASK"
 }
 
 # Then, let's automatically approve all other jobs.
-approve {
+approve if {
 	not requires_approval
 }
 
@@ -19,12 +22,12 @@ approve {
 # because only tasks will the have "command" field set.
 task_allowlist := ["ls", "ps"]
 
-approve {
+approve if {
 	input.run.command == task_allowlist[_]
 }
 
 # Two approvals and no rejections to approve.
-approve {
+approve if {
 	count(input.reviews.current.approvals) > 1
 	count(input.reviews.current.rejections) == 0
 }

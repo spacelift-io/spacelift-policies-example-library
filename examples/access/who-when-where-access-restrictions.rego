@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # In case things go wrong, we want you to be there.
 #
@@ -24,26 +25,26 @@ ip := input.request.remote_ip
 # for who can have write access, when, and from where (the ip)
 #
 # Allow write access from the Product team
-write {
+write if {
 	"Product team" in input.session.teams
 }
 
 # Only allow access during weekdays
-deny_write {
+deny_write if {
 	weekend[weekday]
 }
 
 # Only allow access during 9-5 time zone
-deny_write {
+deny_write if {
 	clock[0] < 9
 }
 
-deny_write {
+deny_write if {
 	clock[0] > 17
 }
 
 # Only allow access from the 12.34.56.0/24 CIDR
-deny_write {
+deny_write if {
 	not net.cidr_contains("12.34.56.0/24", ip)
 }
 

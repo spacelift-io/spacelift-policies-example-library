@@ -1,8 +1,11 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # This policy checks how many high severity issues has tfsec found
 
-warn[sprintf(message, [p])] {
+warn contains sprintf(message, [p]) if {
 	message := "You have a couple of high serverity issues: %d"
 	results := input.third_party_metadata.custom.tfsec.results
 	p := count({result | result := results[_]; result.severity == "HIGH"})

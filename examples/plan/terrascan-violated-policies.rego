@@ -1,14 +1,17 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # This policy checks the number of violated terrascan policies
 # and shows a warning with the number of them, also, if the number of violated policies is greater than 2, it will deny the run.
 
-warn[sprintf(message, [results])] {
+warn contains sprintf(message, [results]) if {
 	message := "You have a couple of violated policies: %d"
 	results := input.third_party_metadata.custom.terrascan.results.scan_summary.violated_policies
 }
 
-deny[sprintf(message, [results, p])] {
+deny contains sprintf(message, [results, p]) if {
 	message := "The number of violated policies %d is higher than the threshold %d"
 	results := input.third_party_metadata.custom.terrascan.results.scan_summary.violated_policies
 	p := 2

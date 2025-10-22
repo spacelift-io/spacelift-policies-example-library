@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.if
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This policy deploys from a newly created git tag rather than from a branch
 

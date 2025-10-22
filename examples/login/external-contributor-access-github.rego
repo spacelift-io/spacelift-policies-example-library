@@ -1,5 +1,8 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # NOTE: This feature is not available when using single sign-on -
 # your identity provider must be able to successfully validate each user
 # trying to log in to Spacelift.
@@ -17,15 +20,15 @@ allowed := {"bob", "charlie", "danny"}
 
 login := input.session.login
 
-admin {
+admin if {
 	admins[login]
 }
 
-allow {
+allow if {
 	allowed[login]
 }
 
-deny {
+deny if {
 	not admins[login]
 	not allowed[login]
 }
