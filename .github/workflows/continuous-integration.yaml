@@ -16,7 +16,7 @@ jobs:
       - name: Setup Regal
         uses: StyraInc/setup-regal@v1
         with:
-          version: v0.11.0
+          version: v0.36.1
       - run: regal lint --format=github .
 
   syntax-check:
