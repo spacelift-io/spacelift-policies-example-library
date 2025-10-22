@@ -1,5 +1,8 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # This policy attempts to create a metric called a "blast radius" - that is how much the change will affect the whole stack.
 # It assigns special multipliers to some types of resources changed and treats different types of changes differently:
 # deletes and updates are more "expensive" because they affect live resources, while new resources are generally safer
@@ -8,17 +11,17 @@ package spacelift
 
 proposed := input.spacelift.run.type == "PROPOSED"
 
-deny[msg] {
+deny contains msg if {
 	proposed
 	msg := blast_radius_too_high[_]
 }
 
-warn[msg] {
+warn contains msg if {
 	not proposed
 	msg := blast_radius_too_high[_]
 }
 
-blast_radius_too_high[sprintf("change blast radius too high (%d/100)", [blast_radius])] {
+blast_radius_too_high contains sprintf("change blast radius too high (%d/100)", [blast_radius]) if {
 	blast_radius := sum([blast |
 		resource := input.terraform.resource_changes[_]
 		blast := blast_radius_for_resource(resource)
@@ -27,7 +30,7 @@ blast_radius_too_high[sprintf("change blast radius too high (%d/100)", [blast_ra
 	blast_radius > 100
 }
 
-blast_radius_for_resource(resource) := ret {
+blast_radius_for_resource(resource) := ret if {
 	blasts_radii_by_action := {"delete": 10, "update": 5, "create": 1, "no-op": 0}
 
 	ret := sum([value |
@@ -42,7 +45,7 @@ blast_radius_for_resource(resource) := ret {
 blasts_radii_by_type := {"aws_ecs_cluster": 20, "aws_ecs_user": 10, "aws_ecs_role": 5}
 
 # By default, blast radius has a value of 1.
-blast_radius_for_type(type) := 1 {
+blast_radius_for_type(type) := 1 if {
 	not blasts_radii_by_type[type]
 }
 

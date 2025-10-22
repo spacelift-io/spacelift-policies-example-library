@@ -1,7 +1,10 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # This rule will generate an array of Slack channel names from the stack labels.
-slack_channels[slack_channel] {
+slack_channels contains slack_channel if {
 	# Extract labels from the stack
 	label := input.run_updated.stack.labels[_]
 
@@ -12,7 +15,7 @@ slack_channels[slack_channel] {
 	slack_channel := split(label, ":")[1]
 }
 
-slack[{"channel_id": channel}] {
+slack contains {"channel_id": channel} if {
 	run := input.run_updated.run
 	run.type == "TRACKED"
 

@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.if
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # By default, runs are not triggered when a forked repository opens a pull request against your repository.
 # This is because of a security concern: if let's say your infrastructure is open source, someone forks it,

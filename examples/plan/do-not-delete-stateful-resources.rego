@@ -1,13 +1,14 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This policy is a plan policy, it will validate the resources during the plan phase.
 # More details at: https://docs.spacelift.io/concepts/policy/terraform-plan-policy
 # The "deny" rule fires when a specified resource is being deleted.
 # The result is a formatted message with the address of the offending resource.
 
-deny[sprintf(message, [resource.address])] {
+deny contains sprintf(message, [resource.address]) if {
 	# Define the error message format
 	message := "do not delete %s"
 

@@ -1,5 +1,8 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # The example below is pretty extreme but it shows a very comprehensive
 # policy where you restrict Spacelift access to users logging in from the office IP
 # during business hours. You may want to use elements of this policy to create your own
@@ -20,21 +23,21 @@ ip := input.request.remote_ip
 # for who can have write access, when, and from where (the ip)
 #
 # Only allow access during weekdays
-deny {
+deny if {
 	weekend[weekday]
 }
 
 # Only allow access during 9-5 time zone
-deny {
+deny if {
 	clock[0] < 9
 }
 
-deny {
+deny if {
 	clock[0] > 17
 }
 
 # Only allow access from the 12.34.56.0/24 CIDR
-deny {
+deny if {
 	not net.cidr_contains("12.34.56.0/24", ip)
 }
 

@@ -1,12 +1,15 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # When attached to a module, this policy will trigger a tracked run when a tag event is detected.
 # It then parses the tag event data and uses that value for the module version.
 # Here, we remove a git tag prefixed with "v" as the Terraform Module Registry only supports versions in a numeric "X.X.X" format.
 
 module_version := trim_prefix(input.push.tag, "v")
 
-track {
+track if {
 	input.push.tag != ""
 }
 

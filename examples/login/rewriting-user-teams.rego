@@ -1,10 +1,11 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This rule will copy each of the existing teams to the new modified list.
 # Remove it if you want to start from scratch.
-team[input.session.teams[_]]
+team contains input.session.teams[_]
 
 # In addition to boolean rules regulating access to your Spacelift account, the login
 # policy exposes the team rule, which allows one to dynamically rewrite the list of teams
@@ -15,21 +16,21 @@ team[input.session.teams[_]]
 # - is a member of the DevOps team, as defined by your IdP;
 # - is not a member of the Contractors team, as defined by your IdP;
 
-team["Superwriter"] {
+team contains "Superwriter" if {
 	office_vpn
 	devops
 	not contractor
 }
 
-contractor {
+contractor if {
 	"Contractors" in input.session.teams
 }
 
-devops {
+devops if {
 	"DevOps" in input.session.teams
 }
 
-office_vpn {
+office_vpn if {
 	net.cidr_contains("12.34.56.0/24", input.request.remote_ip)
 }
 

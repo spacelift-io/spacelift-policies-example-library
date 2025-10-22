@@ -1,8 +1,7 @@
 package spacelift
 
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This example trigger policy will cause every stack that declares dependency on
 # the current one to get triggered when the current one is successfully updated.

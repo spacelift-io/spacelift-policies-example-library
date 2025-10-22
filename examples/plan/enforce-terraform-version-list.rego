@@ -1,5 +1,8 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # Define a list of not allowed Terraform versions.
 notallowed_versions := ["1.4.1", "1.4.2", "1.4.3"]
 
@@ -8,7 +11,7 @@ allowed_versions := ["1.4.4", "1.4.5", "1.5.0"]
 
 # The "deny" rule fires when a blocked Terraform version is used.
 # The result is a formatted message with the blocked version.
-deny[sprintf("Not allowed to use Terraform version %s. Please consider using one of the following versions: %v", [terraform_version, allowed_versions])] {
+deny contains sprintf("Not allowed to use Terraform version %s. Please consider using one of the following versions: %v", [terraform_version, allowed_versions]) if {
 	# Extract the Terraform version from the runtime configuration
 	terraform_version := input.terraform.terraform_version
 
@@ -17,7 +20,7 @@ deny[sprintf("Not allowed to use Terraform version %s. Please consider using one
 }
 
 # The "warn" rule fires for any other Terraform version.
-warn[sprintf("You're using Terraform version %s, which isn't explicitly allowed or denied. Consider using one of the allowed versions: %v", [terraform_version, allowed_versions])] {
+warn contains sprintf("You're using Terraform version %s, which isn't explicitly allowed or denied. Consider using one of the allowed versions: %v", [terraform_version, allowed_versions]) if {
 	# Extract the Terraform version from the runtime configuration
 	terraform_version := input.terraform.terraform_version
 
@@ -27,12 +30,12 @@ warn[sprintf("You're using Terraform version %s, which isn't explicitly allowed 
 }
 
 # Helper rule to check if a version is in the allowed_versions
-is_version_allowed(version) {
+is_version_allowed(version) if {
 	allowed_versions[_] = version
 }
 
 # Helper rule to check if a version is in the notallowed_versions
-is_version_notallowed(version) {
+is_version_notallowed(version) if {
 	notallowed_versions[_] = version
 }
 

@@ -1,5 +1,8 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # This example plan policy enforces specific tags are present on your resources
 #
 # You can read more about plan policies here:
@@ -7,7 +10,7 @@ package spacelift
 
 required_tags := {"Name", "env", "owner"}
 
-deny[sprintf("resource %q does not have all suggested tags (%s)", [resource.address, concat(", ", missing_tags)])] {
+deny contains sprintf("resource %q does not have all suggested tags (%s)", [resource.address, concat(", ", missing_tags)]) if {
 	resource := input.terraform.resource_changes[_]
 	tags := resource.change.after.tags_all
 

@@ -1,5 +1,8 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # set the maximum number of retries
 default max_retries := 3
 
@@ -23,15 +26,15 @@ new_retries := max(obtain_retries_count(input.run.flags)) + 1
 
 retry_flag := sprintf("%s:%d", [retry_count_key, new_retries])
 
-flag[retry_flag]
+flag contains retry_flag
 
-is_failed_and_tracked {
+is_failed_and_tracked if {
 	input.run.state == "FAILED"
 	input.run.type == "TRACKED"
 }
 
 # trigger the stack if the max retry label is 0
-trigger[stack.id] {
+trigger contains stack.id if {
 	stack := input.stack
 	is_failed_and_tracked
 	retry_label <= 0
@@ -39,7 +42,7 @@ trigger[stack.id] {
 }
 
 # trigger the stack if the max retry label is defined but only up to the maximum retries
-trigger[stack.id] {
+trigger contains stack.id if {
 	stack := input.stack
 	is_failed_and_tracked
 	retry_label > 0

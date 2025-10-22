@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.in
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # The best way to use warn and deny rules together depends on your preferred Git workflow.
 # We've found short-lived feature branches with Pull Requests to the tracked branch to work relatively well.
@@ -22,17 +23,17 @@ import future.keywords.in
 
 proposed := input.spacelift.run.type == "PROPOSED"
 
-deny[reason] {
+deny contains reason if {
 	proposed
 	reason := iam_user_created[_]
 }
 
-warn[reason] {
+warn contains reason if {
 	not proposed
 	reason := iam_user_created[_]
 }
 
-iam_user_created[sprintf("Do not create IAM users: (%s)", [resource.address])] {
+iam_user_created contains sprintf("Do not create IAM users: (%s)", [resource.address]) if {
 	resource := input.terraform.resource_changes[_]
 	"create" in resource.change.actions
 

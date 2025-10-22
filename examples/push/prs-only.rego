@@ -1,6 +1,7 @@
 package spacelift
 
-import future.keywords.if
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
 
 # This policy triggers proposed runs only if a PR exists,
 # and tracked runs only from PR merges.

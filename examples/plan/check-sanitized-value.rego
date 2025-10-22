@@ -1,10 +1,13 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # Sensitive properties in "before" and "after" objects will be sanitized to protect secret values.
 # Sanitization hashes the value and takes the last 8 bytes of the hash.
 # If you need to compare a string property to a constant, you can use the sanitized(string) helper function.
 
-deny["must not target the forbidden endpoint: forbidden.endpoint/webhook"] {
+deny contains "must not target the forbidden endpoint: forbidden.endpoint/webhook" if {
 	resource := input.terraform.resource_changes[_]
 
 	actions := {"create", "delete", "update"}

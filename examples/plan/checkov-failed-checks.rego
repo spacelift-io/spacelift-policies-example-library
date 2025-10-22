@@ -1,8 +1,11 @@
 package spacelift
 
+# This import is required for Rego v0 compatibility and can be removed if you are only using Rego v1.
+import rego.v1
+
 # This policy will give you a warning if your failed checks are less than 10, but will not fail your run.
 
-warn[sprintf(message, [p])] {
+warn contains sprintf(message, [p]) if {
 	message := "You have a couple of failed checks: %d"
 	results := input.third_party_metadata.custom.checkov.results.failed_checks
 	p := count(results)
