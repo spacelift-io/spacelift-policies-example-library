@@ -1,8 +1,11 @@
-package spacelift
+package spacelift_test
+
+import data.spacelift
+import rego.v1
 
 # Test allowing a valid Cloud SQL instance configuration
-test_allow_valid_cloud_sql_instance {
-	count(deny) == 0 with input as {"terraform": {"resource_changes": [{
+test_allow_valid_cloud_sql_instance if {
+	count(spacelift.deny) == 0 with input as {"terraform": {"resource_changes": [{
 		"type": "google_sql_database_instance",
 		"change": {
 			"actions": ["create"],
@@ -12,8 +15,8 @@ test_allow_valid_cloud_sql_instance {
 }
 
 # Test denying a Cloud SQL instance open to 0.0.0.0/0
-test_deny_cloud_sql_instance_open_to_world {
-	deny with input as {"terraform": {"resource_changes": [{
+test_deny_cloud_sql_instance_open_to_world if {
+	spacelift.deny with input as {"terraform": {"resource_changes": [{
 		"type": "google_sql_database_instance",
 		"change": {
 			"actions": ["create"],
@@ -23,8 +26,8 @@ test_deny_cloud_sql_instance_open_to_world {
 }
 
 # Test non-applicability for a non-Cloud SQL resource
-test_allow_non_cloud_sql_resource {
-	count(deny) == 0 with input as {"terraform": {"resource_changes": [{
+test_allow_non_cloud_sql_resource if {
+	count(spacelift.deny) == 0 with input as {"terraform": {"resource_changes": [{
 		"type": "google_compute_instance",
 		"change": {
 			"actions": ["create"],

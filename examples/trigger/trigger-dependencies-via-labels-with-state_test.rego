@@ -1,13 +1,11 @@
-package spacelift
+package spacelift_test
 
 import data.spacelift
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
+import rego.v1
 
 # Test Case 1: Dependency and State Match
 test_dependency_and_state_match if {
-	spacelift.trigger with input as {
+	spacelift.trigger["stack-two"] with input as {
 		"run": {
 			"state": "FINISHED",
 			"type": "TRACKED",

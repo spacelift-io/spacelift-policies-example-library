@@ -9,10 +9,6 @@ import rego.v1
 # This policy can be combined with automatic policy attachment (https://docs.spacelift.io/concepts/policy#automatically)
 # to automatically enforce it across stacks.
 
-approve if {
-	input.run.state != "UNCONFIRMED"
-}
-
 approval_list := [
 	"aws_iam_access_key",
 	"aws_security_group",
@@ -30,7 +26,7 @@ requires_approval if {
 	# Check if any of the actions on the resource is "added"
 	action := resource.actions[_]
 	action == "added"
-	resource.entity.type == approval_list[_]
+	resource.entity.type in approval_list
 }
 
 requires_approval if {
@@ -40,7 +36,7 @@ requires_approval if {
 	# Check if any of the actions on the resource is "changed"
 	action := resource.actions[_]
 	action == "changed"
-	resource.entity.type == approval_list[_]
+	resource.entity.type in approval_list
 }
 
 requires_approval if {
@@ -50,7 +46,7 @@ requires_approval if {
 	# Check if any of the actions on the resource is "deleted"
 	action := resource.actions[_]
 	action == "deleted"
-	resource.entity.type == approval_list[_]
+	resource.entity.type in approval_list
 }
 
 approvals := input.reviews.current.approvals
@@ -58,6 +54,10 @@ approvals := input.reviews.current.approvals
 # Let's define what it means to be approved by Security team.
 security_approval if {
 	"Security" in approvals[_].session.teams
+}
+
+approve if {
+	input.run.state != "UNCONFIRMED"
 }
 
 # Approve when Security team approve and Require at least 1 approval:

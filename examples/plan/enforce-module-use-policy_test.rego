@@ -1,8 +1,11 @@
-package spacelift
+package spacelift_test
+
+import data.spacelift
+import rego.v1
 
 # Test case for denying creation of controlled resource type.
-test_deny_creation_of_controlled_resource_type {
-	deny["Resource 'aws_s3_bucket.bucket_1' cannot be created directly. Module(s) 'terraform-aws-modules/s3-bucket/aws' must be used instead"] with input as {"terraform": {"resource_changes": [{
+test_deny_creation_of_controlled_resource_type if {
+	spacelift.deny["Resource 'aws_s3_bucket.bucket_1' cannot be created directly. Module(s) 'terraform-aws-modules/s3-bucket/aws' must be used instead"] with input as {"terraform": {"resource_changes": [{
 		"address": "aws_s3_bucket.bucket_1",
 		"type": "aws_s3_bucket",
 		"change": {"actions": ["create"]},
@@ -10,8 +13,8 @@ test_deny_creation_of_controlled_resource_type {
 }
 
 # Test case for update creation of controlled resource type.
-test_deny_update_of_controlled_resource_type {
-	deny["Resource 'aws_s3_bucket.bucket_1' cannot be created directly. Module(s) 'terraform-aws-modules/s3-bucket/aws' must be used instead"] with input as {"terraform": {"resource_changes": [{
+test_deny_update_of_controlled_resource_type if {
+	spacelift.deny["Resource 'aws_s3_bucket.bucket_1' cannot be created directly. Module(s) 'terraform-aws-modules/s3-bucket/aws' must be used instead"] with input as {"terraform": {"resource_changes": [{
 		"address": "aws_s3_bucket.bucket_1",
 		"type": "aws_s3_bucket",
 		"change": {"actions": ["update"]},
@@ -19,8 +22,8 @@ test_deny_update_of_controlled_resource_type {
 }
 
 # Test case for allowing deletion of controlled resource type.
-test_allow_deletion_of_controlled_resource_type {
-	count(deny) == 0 with input as {"terraform": {"resource_changes": [{
+test_allow_deletion_of_controlled_resource_type if {
+	count(spacelift.deny) == 0 with input as {"terraform": {"resource_changes": [{
 		"address": "aws_s3_bucket.bucket_1",
 		"type": "aws_s3_bucket",
 		"change": {"actions": ["delete"]},
@@ -28,8 +31,8 @@ test_allow_deletion_of_controlled_resource_type {
 }
 
 # Test case for allowing creation of uncontrolled resource type.
-test_allow_creation_of_uncontrolled_resource_type {
-	count(deny) == 0 with input as {"terraform": {"resource_changes": [{
+test_allow_creation_of_uncontrolled_resource_type if {
+	count(spacelift.deny) == 0 with input as {"terraform": {"resource_changes": [{
 		"address": "aws_ecs_cluster.one",
 		"type": "aws_ecs_cluster",
 		"change": {"actions": ["create"]},

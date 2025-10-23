@@ -1,10 +1,9 @@
 package spacelift_test
 
+import rego.v1
+
 # Import the testing library
 import data.spacelift
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
 
 # Test - Approve if not a task
 test_not_a_task_approves if {
@@ -27,7 +26,7 @@ test_two_or_more_approvals if {
 	spacelift.approve with input as {"reviews": {"current": {"approvals": [{"author": "user1"}, {"author": "user2"}]}}}
 }
 
-# Test - Do not approve with less than two approvals
+# Test - Do not spacelift.approve with less than two approvals
 test_less_than_two_approvals_does_not_approve if {
 	not spacelift.approve with input as {"reviews": {"current": {"approvals": [{"author": "user1"}]}}}
 }

@@ -1,30 +1,31 @@
 package spacelift_test
 
+import rego.v1
+
 import data.spacelift
-import future.keywords.if
 
 test_propose_for_pr if {
-	input := {
+	test_input := {
 		"pull_request": {"action": "commented"},
 		"push": {"branch": "feature"},
 		"stack": {"branch": "main"},
 	}
-	spacelift.propose with input as input
+	spacelift.propose with input as test_input
 }
 
 test_track_on_pr_merge if {
-	input := {
+	test_input := {
 		"pull_request": {"action": "merged"},
 		"push": {"branch": "main"},
 		"stack": {"branch": "main"},
 	}
-	spacelift.track with input as input
+	spacelift.track with input as test_input
 }
 
 test_ignore_non_pr_events if {
-	input := {
+	test_input := {
 		"push": {"branch": "feature"},
 		"stack": {"branch": "main"},
 	}
-	spacelift.ignore with input as input
+	spacelift.ignore with input as test_input
 }

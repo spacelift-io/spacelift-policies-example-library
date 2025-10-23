@@ -21,7 +21,7 @@ slack contains {"channel_id": channel} if {
 
 	# Here we're using the slack_channels rule to get all channels
 	# and iterate over each one.
-	channel = slack_channels[_]
+	some channel in slack_channels
 }
 
 sample := true

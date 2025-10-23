@@ -1,9 +1,8 @@
 package spacelift_test
 
+import rego.v1
+
 import data.spacelift
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
 
 # Test when run is finished and dependent stack is present
 test_trigger_dependency_present if {

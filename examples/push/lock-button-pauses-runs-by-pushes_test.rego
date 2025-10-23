@@ -1,4 +1,7 @@
-package spacelift
+package spacelift_test
+
+import data.spacelift
+import rego.v1
 
 # Input for locked stack
 locked_stack_input := {
@@ -27,13 +30,13 @@ unlocked_stack_input := {
 }
 
 # Test that propose and track are true for unlocked stack
-test_propose_and_track_for_unlocked_stack {
-	propose with input as unlocked_stack_input
-	track with input as unlocked_stack_input
+test_propose_and_track_for_unlocked_stack if {
+	spacelift.propose with input as unlocked_stack_input
+	spacelift.track with input as unlocked_stack_input
 }
 
 # Test that propose and track are false for locked stack
-test_propose_and_track_for_locked_stack {
-	not propose with input as locked_stack_input
-	not track with input as locked_stack_input
+test_propose_and_track_for_locked_stack if {
+	not spacelift.propose with input as locked_stack_input
+	not spacelift.track with input as locked_stack_input
 }

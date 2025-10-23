@@ -1,10 +1,8 @@
-# regal ignore:use-rego-v1
 package spacelift_test
 
+import rego.v1
+
 import data.spacelift
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
 
 # Test with 1 resource having "create-before-destroy" action with moved false
 test_create_before_destroy if {
@@ -33,11 +31,11 @@ test_create_before_destroy if {
 	# Get the added resources with the input data applied
 	added_resources := spacelift.added with input as input_data
 
-	# Get the deleted resources with the input data applied
-	deleted_resources := spacelift.deleted with input as input_data
-
 	# Correct count for added resources
 	count(added_resources) == 1
+
+	# Get the deleted resources with the input data applied
+	deleted_resources := spacelift.deleted with input as input_data
 
 	# Correct count for deleted resources
 	count(deleted_resources) == 1
@@ -91,11 +89,11 @@ test_added_and_moved_resources if {
 	# Get the added resources with the input data applied
 	added_resources := spacelift.added with input as input_data
 
-	# Get the moved resources with the input data applied
-	moved_resources := spacelift.moved with input as input_data
-
 	# Correct count for added resources
 	count(added_resources) == 2
+
+	# Get the moved resources with the input data applied
+	moved_resources := spacelift.moved with input as input_data
 
 	# Correct count for moved resources
 	count(moved_resources) == 1

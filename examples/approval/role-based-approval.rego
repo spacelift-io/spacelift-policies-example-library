@@ -13,10 +13,6 @@ requires_approval if {
 	input.run.type == "TASK"
 }
 
-approve if {
-	not requires_approval
-}
-
 approvals := input.reviews.current.approvals
 
 # Let's define what it means to be approved by a director, DevOps and Security.
@@ -30,6 +26,10 @@ devops_approval if {
 
 security_approval if {
 	"Security" in approvals[_].session.teams
+}
+
+approve if {
+	not requires_approval
 }
 
 # Approve when a single director approves:
