@@ -1,9 +1,8 @@
 package spacelift_test
 
+import rego.v1
+
 import data.spacelift
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
 
 # Test for missing mandatory labels
 test_deny_for_missing_mandatory_labels if {

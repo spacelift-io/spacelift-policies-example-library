@@ -10,8 +10,8 @@ import rego.v1
 # https://docs.spacelift.io/concepts/policy/trigger-policy
 
 trigger contains stack.id if {
-	some stack in input.stacks
 	input.run.type == "TRACKED"
+	some stack in input.stacks
 	some label in stack.labels
 	label == concat("", [
 		"depends-on:", input.stack.id,

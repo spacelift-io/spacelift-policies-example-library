@@ -2,6 +2,18 @@ rules:
   idiomatic:
     no-defined-entrypoint:
       level: ignore
+    # Package names are standardized as "spacelift" across all policy files
+    # regardless of directory structure, as required by Spacelift platform
+    directory-package-mismatch:
+      level: ignore
+    # Single-item collection checks can reduce readability when the collection
+    # might grow in the future or for consistency with multi-item checks
+    single-item-in:
+      level: ignore
+    # Boolean constant assignments (e.g., proposed := input.run.type == "PROPOSED")
+    # are clearer than using if for simple boolean expressions
+    boolean-assignment:
+      level: ignore
   style:
     external-reference:
       level: ignore
@@ -28,3 +40,7 @@ capabilities:
 
 project:
   rego-version: 0
+
+ignore:
+  files:
+  - "testdata/*"

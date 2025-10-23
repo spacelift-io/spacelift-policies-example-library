@@ -1,8 +1,11 @@
-package spacelift
+package spacelift_test
+
+import data.spacelift
+import rego.v1
 
 # Test when everything is valid
-test_track_valid {
-	track with input as {
+test_track_valid if {
+	spacelift.track with input as {
 		"pull_request": {
 			"action": "commented",
 			"comment": "/spacelift deploy testStack",
@@ -13,8 +16,8 @@ test_track_valid {
 }
 
 # Test for an invalid comment
-test_not_track_invalid_comment {
-	not track with input as {
+test_not_track_invalid_comment if {
+	not spacelift.track with input as {
 		"pull_request": {
 			"action": "commented",
 			"comment": "/spacelift wrong deploy",
@@ -25,8 +28,8 @@ test_not_track_invalid_comment {
 }
 
 # Test for a non-team member
-test_not_track_non_team_member {
-	not track with input as {
+test_not_track_non_team_member if {
+	not spacelift.track with input as {
 		"pull_request": {
 			"action": "commented",
 			"comment": "/spacelift deploy testStack",

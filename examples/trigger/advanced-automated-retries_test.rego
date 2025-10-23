@@ -1,9 +1,8 @@
 package spacelift_test
 
+import rego.v1
+
 import data.spacelift
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
 
 # Test Case 1: Failed and Tracked Run without flags
 test_failed_and_tracked_run_without_flags if {

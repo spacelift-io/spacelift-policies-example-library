@@ -1,52 +1,55 @@
-package spacelift
+package spacelift_test
+
+import data.spacelift
+import rego.v1
 
 # Test for denied versions
-test_deny_1_4_1 {
+test_deny_1_4_1 if {
 	inp := {"terraform": {"terraform_version": "1.4.1"}}
-	count(deny) == 1 with input as inp
-	count(warn) == 0 with input as inp
+	count(spacelift.deny) == 1 with input as inp
+	count(spacelift.warn) == 0 with input as inp
 }
 
-test_deny_1_4_2 {
+test_deny_1_4_2 if {
 	inp := {"terraform": {"terraform_version": "1.4.2"}}
-	count(deny) == 1 with input as inp
-	count(warn) == 0 with input as inp
+	count(spacelift.deny) == 1 with input as inp
+	count(spacelift.warn) == 0 with input as inp
 }
 
-test_deny_1_4_3 {
+test_deny_1_4_3 if {
 	inp := {"terraform": {"terraform_version": "1.4.3"}}
-	count(deny) == 1 with input as inp
-	count(warn) == 0 with input as inp
+	count(spacelift.deny) == 1 with input as inp
+	count(spacelift.warn) == 0 with input as inp
 }
 
 # Test for allowed versions (should not warn or deny)
-test_allow_1_4_4 {
+test_allow_1_4_4 if {
 	inp := {"terraform": {"terraform_version": "1.4.4"}}
-	count(deny) == 0 with input as inp
-	count(warn) == 0 with input as inp
+	count(spacelift.deny) == 0 with input as inp
+	count(spacelift.warn) == 0 with input as inp
 }
 
-test_allow_1_4_5 {
+test_allow_1_4_5 if {
 	inp := {"terraform": {"terraform_version": "1.4.5"}}
-	count(deny) == 0 with input as inp
-	count(warn) == 0 with input as inp
+	count(spacelift.deny) == 0 with input as inp
+	count(spacelift.warn) == 0 with input as inp
 }
 
-test_allow_1_5_0 {
+test_allow_1_5_0 if {
 	inp := {"terraform": {"terraform_version": "1.5.0"}}
-	count(deny) == 0 with input as inp
-	count(warn) == 0 with input as inp
+	count(spacelift.deny) == 0 with input as inp
+	count(spacelift.warn) == 0 with input as inp
 }
 
 # Test for versions that should generate a warning
-test_warn_1_4_0 {
+test_warn_1_4_0 if {
 	inp := {"terraform": {"terraform_version": "1.4.0"}}
-	count(deny) == 0 with input as inp
-	count(warn) == 1 with input as inp
+	count(spacelift.deny) == 0 with input as inp
+	count(spacelift.warn) == 1 with input as inp
 }
 
-test_warn_1_5_1 {
+test_warn_1_5_1 if {
 	inp := {"terraform": {"terraform_version": "1.5.1"}}
-	count(deny) == 0 with input as inp
-	count(warn) == 1 with input as inp
+	count(spacelift.deny) == 0 with input as inp
+	count(spacelift.warn) == 1 with input as inp
 }

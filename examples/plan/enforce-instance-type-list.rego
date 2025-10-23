@@ -33,16 +33,12 @@ warn contains sprintf(message, [resource.address, instance]) if {
 
 # Helper function to check if instance type is in the allow list
 is_in_allow_list(instance) if {
-	some allowed_instance
-	allowed_instance = allow_list[_]
-	allowed_instance == instance
+	instance in allow_list
 }
 
 # Helper function to check if instance type is in the deny list
 is_in_deny_list(instance) if {
-	some denied_instance
-	denied_instance = deny_list[_]
-	denied_instance == instance
+	instance in deny_list
 }
 
 # Learn more about sampling policy evaluations here:

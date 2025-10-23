@@ -1,10 +1,11 @@
-package spacelift
+package spacelift_test
 
-import future.keywords.in
+import data.spacelift
+import rego.v1
 
 # 1. Label with the right format triggers slack rule
-test_single_label_triggers_slack {
-	result := slack with input as {"run_updated": {
+test_single_label_triggers_slack if {
+	result := spacelift.slack with input as {"run_updated": {
 		"stack": {"labels": ["slack:C12345678"]},
 		"run": {"type": "TRACKED"},
 	}}
@@ -13,8 +14,8 @@ test_single_label_triggers_slack {
 }
 
 # 2. Two labels in the right format should trigger slack rule twice
-test_two_labels_trigger_slack_twice {
-	result := slack with input as {"run_updated": {
+test_two_labels_trigger_slack_twice if {
+	result := spacelift.slack with input as {"run_updated": {
 		"stack": {"labels": [
 			"slack:C12345678",
 			"slack:C89101112",
@@ -27,8 +28,8 @@ test_two_labels_trigger_slack_twice {
 }
 
 # 3. Label not in the right format should not trigger slack rule
-test_wrong_format_doesnt_trigger_slack {
-	result := slack with input as {"run_updated": {
+test_wrong_format_doesnt_trigger_slack if {
+	result := spacelift.slack with input as {"run_updated": {
 		"stack": {"labels": ["slackXYZ:C12345678"]},
 		"run": {"type": "TRACKED"},
 	}}

@@ -16,7 +16,7 @@ deny contains sprintf("Not allowed to use Terraform version %s. Please consider 
 	terraform_version := input.terraform.terraform_version
 
 	# Check if the Terraform version is one of those defined in the notallowed_versions list
-	notallowed_versions[_] = terraform_version
+	terraform_version in notallowed_versions
 }
 
 # The "warn" rule fires for any other Terraform version.
@@ -31,12 +31,12 @@ warn contains sprintf("You're using Terraform version %s, which isn't explicitly
 
 # Helper rule to check if a version is in the allowed_versions
 is_version_allowed(version) if {
-	allowed_versions[_] = version
+	version in allowed_versions
 }
 
 # Helper rule to check if a version is in the notallowed_versions
 is_version_notallowed(version) if {
-	notallowed_versions[_] = version
+	version in notallowed_versions
 }
 
 # Learn more about sampling policy evaluations here:

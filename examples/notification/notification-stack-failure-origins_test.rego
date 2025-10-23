@@ -1,10 +1,7 @@
-package spacelift
-
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
+package spacelift_test
 
 import data.spacelift
+import rego.v1
 
 # Test successful Slack notification for a tracked, failed run
 test_slack_notification_for_tracked_failed_run if {
