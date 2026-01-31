@@ -1,0 +1,11 @@
+name: "Discord | Drift Detection with Changes"
+source: discord-drift-detection-with-changes.rego
+type: notification
+description: |
+  This policy sends a notification to a Discord webhook when drift is detected on a stack and there are actual changes to be applied.
+  It sends a rich embed with links directly to the affected stack and run in Spacelift.
+labels:
+- notification
+- drift-detection
+- discord
+- webhook
