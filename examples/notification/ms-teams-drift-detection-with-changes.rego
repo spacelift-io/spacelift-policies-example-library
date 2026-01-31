@@ -3,7 +3,7 @@ package spacelift
 webhook[wbdata] {
 	# 1. Identify the specific webhook
 	endpoint := input.webhook_endpoints[_]
-	endpoint.id == "teams-webhook"
+	endpoint.id == "teams-webhook" # Change this to your webhook ID
 
 	# 2. Logic: Only trigger if drift is detected and there are changes
 	input.run_updated.run.drift_detection
@@ -44,6 +44,7 @@ webhook[wbdata] {
 					"actions": [{
 						"type": "Action.OpenUrl",
 						"title": "View in Spacelift",
+                        # change your URL below to app.us.spacelift.io if you are using the US region or app.eu.spacelift.io if you are using the EU region
 						"url": sprintf("https://%s.app.spacelift.io/stack/%s/run/%s", [input.account.name, stack.id, run.id]),
 					}],
 				},
