@@ -59,6 +59,8 @@ _Access policies have been deprecated. Please [read this](examples/access/README
 ### Notification Policy
 
 - [Drift Detection with changes](examples/notification/drift-detection-with-changes.rego)
+- [MS Teams | Drift Detection with Changes](examples/notification/ms-teams-drift-detection-with-changes.rego)
+- [Discord | Drift Detection with Changes](examples/notification/discord-drift-detection-with-changes.rego)
 - [Slack Channels set with labels](examples/notification/slack-channels-with-labels.rego)
 - [Notification for link to failure logs](examples/notification/notification-failure.rego)
 - [Notification for Origins of Failed Stacks](examples/notification/notification-stack-failure-origins.rego)

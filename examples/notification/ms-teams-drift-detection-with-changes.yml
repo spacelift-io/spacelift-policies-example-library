@@ -1,0 +1,11 @@
+name: "MS Teams | Drift Detection with Changes"
+source: ms-teams-drift-detection-with-changes.rego
+type: notification
+description: |
+  This policy sends a notification to a Microsoft Teams webhook when drift is detected on a stack and there are actual changes to be applied.
+  It uses an Adaptive Card to provide a rich visual summary of the drift, including the stack name, current state, and the number of resources affected.
+labels:
+- notification
+- drift-detection
+- ms-teams
+- webhook
