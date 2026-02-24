@@ -7,10 +7,10 @@ import rego.v1
 # the instance type.
 
 # Define the deny list of instance types
-deny_list := ["t2.2xlarge", "t2.xlarge"]
+deny_list := {"t2.2xlarge", "t2.xlarge"}
 
 # Define the allow list of instance types
-allow_list := ["t2.nano", "t2.micro", "t2.small"]
+allow_list := {"t2.nano", "t2.micro", "t2.small"}
 
 # Deny if the instance type is in the deny list
 deny contains sprintf(message, [resource.address, instance]) if {
@@ -18,7 +18,7 @@ deny contains sprintf(message, [resource.address, instance]) if {
 	resource := input.terraform.resource_changes[_]
 	resource.type == "aws_instance"
 	instance := resource.change.after.instance_type
-	is_in_deny_list(instance)
+	deny_list[instance]
 }
 
 # Warn if the instance type is not in the allow or deny lists
@@ -27,18 +27,8 @@ warn contains sprintf(message, [resource.address, instance]) if {
 	resource := input.terraform.resource_changes[_]
 	resource.type == "aws_instance"
 	instance := resource.change.after.instance_type
-	not is_in_allow_list(instance)
-	not is_in_deny_list(instance)
-}
-
-# Helper function to check if instance type is in the allow list
-is_in_allow_list(instance) if {
-	instance in allow_list
-}
-
-# Helper function to check if instance type is in the deny list
-is_in_deny_list(instance) if {
-	instance in deny_list
+	not allow_list[instance]
+	not deny_list[instance]
 }
 
 # Learn more about sampling policy evaluations here:
