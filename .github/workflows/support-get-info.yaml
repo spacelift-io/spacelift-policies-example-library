@@ -1,0 +1,14 @@
+name: "Support: Get Info"
+
+on:
+  issues:
+    types: [ opened ]
+  pull_request:
+    types: [opened]
+
+permissions:
+  contents: read
+
+jobs:
+  get-info:
+    uses: spacelift-io/.github/.github/workflows/support-get-info.yaml@main
