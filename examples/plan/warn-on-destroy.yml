@@ -1,0 +1,27 @@
+name: Warn On Destroy
+source: warn-on-destroy.rego
+type: plan
+description: |
+  This policy pauses every destroy run for a manual confirmation before any resource is destroyed.
+
+  Destroy runs on OpenTofu and Terraform stacks plan the destroy first and, unless a plan policy warns,
+  destroy the resources right after the plan, whatever the stack's autodeploy setting. This policy warns
+  on every destroy run, so the run stops in the Unconfirmed state and waits for someone to review
+  the destroy plan and confirm it, or discard it. The warning shows how many resources the plan destroys.
+
+  Stack deletions that destroy resources go through a destroy run too, so they wait for the same confirmation.
+  That includes scheduled and other automated deletions: they stay pending until someone confirms or discards
+  the run, so attach this policy only where a person is around to do it.
+
+  Attach it to the stacks that need the review step, or add the `autoattach:*` label to attach it to every stack
+  in its space and in the spaces that inherit from it.
+
+  Tracked and proposed runs are not affected, even when their plan deletes resources. To review those deletions,
+  use the "Require Human Review For Update Deletion" template.
+
+labels:
+- destroy
+- manual-approval
+- human-review
+- warn
+- plan
