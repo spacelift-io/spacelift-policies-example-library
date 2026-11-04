@@ -93,6 +93,7 @@ _Access policies have been deprecated. Please [read this](examples/access/README
 - [Terrascan violated policies](examples/plan/terrascan-violated-policies.rego)
 - [Tfsec high severity issues](examples/plan/tfsec-high-severity-issues.rego)
 - [Warn On Change To Sensitive Resources](examples/plan/warn-on-change-senstitive-resources.rego)
+- [Warn On Destroy](examples/plan/warn-on-destroy.rego)
 
 ### Push Policy
 
