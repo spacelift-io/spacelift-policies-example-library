@@ -85,6 +85,7 @@ _Access policies have been deprecated. Please [read this](examples/access/README
 - [Kics severity counter](examples/plan/kics-severity-counter.rego)
 - [Mandatory and Acceptable Labels for GCP resources](examples/plan/mandatory-and-acceptable-labels-gcp.rego)
 - [Mandatory and required labels for stacks](examples/plan/mandatory-and-acceptable-labels-stack.rego)
+- [Require confirmation for destroy runs](examples/plan/require-confirmation-for-destroy-runs.rego)
 - [Require human review for drift detection reconciliation](examples/plan/require-human-review-for-drift-detection-reconciliation.rego)
 - [Require human review for unreachable Ansible hosts](examples/plan/require-human-review-for-unreachable-ansible-hosts.rego)
 - [Require human review for resource update and deletion](examples/plan/require-human-review-for-update-deletion.rego)
@@ -93,7 +94,6 @@ _Access policies have been deprecated. Please [read this](examples/access/README
 - [Terrascan violated policies](examples/plan/terrascan-violated-policies.rego)
 - [Tfsec high severity issues](examples/plan/tfsec-high-severity-issues.rego)
 - [Warn On Change To Sensitive Resources](examples/plan/warn-on-change-senstitive-resources.rego)
-- [Warn On Destroy](examples/plan/warn-on-destroy.rego)
 
 ### Push Policy
 

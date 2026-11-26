@@ -1,5 +1,5 @@
-name: Warn On Destroy
-source: warn-on-destroy.rego
+name: Require Confirmation For Destroy Runs
+source: require-confirmation-for-destroy-runs.rego
 type: plan
 description: |
   This policy pauses every destroy run for a manual confirmation before any resource is destroyed.
